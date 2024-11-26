@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Form Submissions</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Panel</h1>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Submitted Forms</h2>
+
+        {{#if submissions.length}}
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Company</th>
+                        <th>Website</th>
+                        <th>Services Interested</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each submissions}}
+                        <tr>
+                            <td>{{this.name}}</td>
+                            <td>{{this.email}}</td>
+                            <td>{{this.phone}}</td>
+                            <td>{{this.company}}</td>
+                            <td>{{this.website}}</td>
+                            <td>
+                                {{#each this.serviceIntersted}}
+                                    <p>{{this}}</p>
+                                {{/each}}
+                            </td>
+                            <td>{{this.message}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <p>No submissions found.</p>
+        {{/if}}
+    </main>
+    <script src="../src/index.js"></script>
+</body>
+</html>

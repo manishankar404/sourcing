@@ -73,35 +73,63 @@ app.get("/Pricing", (req, res) => res.render("pricing"));
 app.get("/Products_We_Source", (req, res) => res.render("products_we_source"));
 app.get("/How_We_Source_Suppliers", (req, res) => res.render("how_we_source_suppliers"));
 
+app.get("/admin", async (req, res) => {
+    try {
+        // Simulate authentication (replace with proper session-based auth later)
+        const admin = await collection.findOne({ email: req.query.email, role: "admin" });
+
+        if (!admin) {
+            return res.status(403).send("Access denied");
+        }
+
+        // Fetch submissions
+        const submissions = await formcollection.find({}).toArray();
+        res.render("admin", { submissions });
+    } catch (err) {
+        res.status(500).send("Error retrieving submissions");
+    }
+});
 
 
 // Signup logic
 app.post("/signup", async (req, res) => {
     const data = {
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        role: "user" // Default to 'user'
     };
 
-    await collection.insertMany([data]);
-
-    res.render("home", { isLoggedIn: false });
+    try {
+        await collection.insertOne(data);
+        res.render("home", { isLoggedIn: false });
+    } catch (err) {
+        res.status(500).send("Signup failed");
+    }
 });
+
+
 
 // Login logic
 app.post("/login", async (req, res) => {
     try {
-        const check = await collection.findOne({ email: req.body.email });
+        const user = await collection.findOne({ email: req.body.email });
 
-        if (check.password === req.body.password) {
-            // Login success
-            res.render("home", { isLoggedIn: true });
+        if (user && user.password === req.body.password) {
+            if (user.role === 'admin') {
+                // Redirect to admin page
+                res.redirect("/admin");
+            } else {
+                // Redirect to user home page
+                res.render("home", { isLoggedIn: true });
+            }
         } else {
-            res.send("Wrong password");
+            res.send("Invalid email or password");
         }
-    } catch {
-        res.send("Wrong details");
+    } catch (err) {
+        res.status(500).send("Login error");
     }
 });
+
 
 // Logout logic
 app.get("/logout", (req, res) => {

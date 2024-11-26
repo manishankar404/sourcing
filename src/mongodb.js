@@ -16,6 +16,11 @@ const LoginSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    role: {
+        type: String,
+        enum: ['user', 'admin'], // Only 'user' or 'admin' allowed
+        default: 'user' // Default role is 'user'
     }
 });
 const FormSchema = new mongoose.Schema({
