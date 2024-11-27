@@ -144,5 +144,5 @@ app.post("/form", async (req, res) => {
 
 
 app.listen(3000, () => {
-    console.log("Port connected");
+    console.log("Server running on http://localhost:3000");
 });

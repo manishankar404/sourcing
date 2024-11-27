@@ -21,3 +21,6 @@ git checkout -b NEW_BRANCH_NAME
 git add .
 git commit -m "Commit message"
 git push -u -f origin <branchname>
+
+
+"npm run dev" to start the server
