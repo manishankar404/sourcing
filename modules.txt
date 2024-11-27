@@ -1,0 +1,16 @@
+user Auth module
+    signin,login
+
+Forms moduls
+    user information
+    order items
+
+sales details
+    order details
+
+Renderer
+    renders hbs pages
+
+Database module
+    User Collection
+    order Collection
