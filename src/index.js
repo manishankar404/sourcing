@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const hbs = require("hbs");
-const {collection,formcollection} = require("./mongodb");
+const {collection,formcollection,tempPasswordReset} = require("./mongodb");
 const templatePath = path.join(__dirname, "../tempelates");
 
 // Serve static files from the "public" directory
@@ -89,12 +89,16 @@ app.get("/submissions", async (req, res) => {
 app.post("/signup", async (req, res) => {
     const data = {
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        petName: req.body.petName // Save the pet name
     };
 
-    await collection.insertMany([data]);
-
-    res.render("home", { isLoggedIn: false });
+    try {
+        await collection.insertMany([data]);
+        res.render("home", { isLoggedIn: false });
+    } catch (err) {
+        res.status(500).send("Error during signup");
+    }
 });
 
 // Login logic
@@ -112,6 +116,36 @@ app.post("/login", async (req, res) => {
         res.send("Wrong details");
     }
 });
+
+// Forget Password
+app.get("/forgot_password", (req, res) => res.render("forgot_password"));
+
+// Forget Password Route
+app.post("/forgot_password", async (req, res) => {
+    const { email, petName, newPassword } = req.body;
+
+    try {
+        // Check if the user exists with the provided email and pet name
+        const user = await collection.findOne({ email: email, petName: petName });
+
+        if (!user) {
+            return res.send("Incorrect details. Please try again.");
+        }
+
+        // Store email and pet name in the temporary collection
+        await tempPasswordReset.create({ email, petName });
+
+        // Update the password directly
+        user.password = newPassword;
+        await user.save();
+
+        res.send("Password successfully reset. You can now log in.");
+    } catch (err) {
+        console.error("Error during password reset:", err);
+        res.status(500).send("Error resetting password");
+    }
+});
+
 
 // Logout logic
 app.get("/logout", (req, res) => {

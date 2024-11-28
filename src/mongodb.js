@@ -19,6 +19,10 @@ const LoginSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    petName: { // New field for security question
+        type: String,
+        required: true
     }
 });
 const FormSchema = new mongoose.Schema({
@@ -48,7 +52,24 @@ const FormSchema = new mongoose.Schema({
     }
 });
 
+const tempPasswordResetSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        required: true,
+    },
+    petName: {
+        type: String,
+        required: true,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        expires: 600, // Automatically delete after 10 minutes
+    },
+});
+
+const tempPasswordReset = new mongoose.model("TempPasswordReset", tempPasswordResetSchema);
 const collection = new mongoose.model("Collection1", LoginSchema);
 const formcollection = new mongoose.model("FormCollection1", FormSchema);
 
-module.exports ={collection,formcollection} ;
+module.exports ={collection,formcollection,tempPasswordReset} ;
