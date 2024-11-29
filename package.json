@@ -1,12 +1,13 @@
 {
   "dependencies": {
     "express": "^4.21.1",
+    "express-session": "^1.18.1",
     "hbs": "^4.2.0",
     "mongoose": "^8.8.2",
     "nodemon": "^3.1.7"
   },
   "scripts": {
     "start": "node src/index.js",
-    "dev":"nodemon src/index.js"
+    "dev": "nodemon src/index.js"
   }
 }

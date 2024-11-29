@@ -29,15 +29,16 @@
                 <ul class="dropdown-content">
                     <li><a href="/Hoodies">Custom Hoodies</a></li>
                     <li><a href="/Jackets">Custom Jackets</a></li>
-                    <li><a href="/T_shirts">Custom T-shirts</a></li>
+                    <li><a href="/sweater">Custom Sweaters</a></li>
                     <li><a href="/Polo_Shirts">Custom Polo Shirts</a></li>
-                    <li><a href="/Shorts">Custom Shorts</a></li>
-                    <li><a href="/Tank_Tops">Custom Tank Tops</a></li>
+                    <li><a href="/T_shirts">Custom T-shirts</a></li>
+                    <li><a href="/Tank_Tops">Custom Tank Tops</a></li>                 
                     <li><a href="/Pants">Custom Pants</a></li>
-                    <li><a href="/Scarf">Custom Scarf</a></li>
+                    <li><a href="/Shorts">Custom Shorts</a></li>
                     <li><a href="/Socks">Custom Socks</a></li>
-                    <li><a href="/Gloves">Custom Gloves</a></li>
                     <li><a href="/Hats">Custom Hats</a></li>
+                    <li><a href="/Scarf">Custom Scarfs</a></li>
+                    <li><a href="/Gloves">Custom Gloves</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -53,7 +54,6 @@
                 <a href="/resources" class="navlnk">Resources</a>
                 <ul class="dropdown-content">
                     <li><a href="/Sourcing_Guide">Sourcing Guide</a></li>
-                    <li><a href="/Suppliers">Suppliers</a></li>
                     <li><a href="/Shipping">Shipping</a></li>
                     <li><a href="/Selling">Selling</a></li>
                 </ul>
@@ -63,8 +63,6 @@
                 <ul class="dropdown-content">
                     <li><a href="/About_Sourcing">About Sourcing</a></li>
                     <li><a href="/Pricing">Pricing</a></li>
-                    <li><a href="/Products_We_Source">Products We Source</a></li>
-                    <li><a href="/How_We_Source_Suppliers">How We Source Suppliers</a></li>
                 </ul>
             </li>
             <li><a class="navlnk" href="/contact">Contact</a></li>
@@ -89,14 +87,23 @@
 </header>
 
 <script>
-    // Display time
-    const d = new Date();
-    const options = {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true,
-    };
-    document.getElementById("demo").innerHTML = d.toLocaleTimeString('en-US', options);
+    // Function to display the current time
+    function updateTime() {
+        const d = new Date();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit', // Added seconds for a live clock feel
+            hour12: true,
+        };
+        document.getElementById("demo").innerHTML = d.toLocaleTimeString('en-US', options);
+    }
+
+    // Initial call to display time immediately
+    updateTime();
+
+    // Update the time every second
+    setInterval(updateTime, 1000);
 
     // Toggle the navigation menu on hamburger click
     const hamburger = document.getElementById("hamburger");
@@ -106,6 +113,7 @@
         navMenu.classList.toggle("active");
     });
 </script>
+
 
 <main class="main-content">
     <section class="hero">

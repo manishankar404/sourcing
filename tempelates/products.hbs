@@ -30,15 +30,16 @@
                 <ul class="dropdown-content">
                     <li><a href="/Hoodies">Custom Hoodies</a></li>
                     <li><a href="/Jackets">Custom Jackets</a></li>
-                    <li><a href="/T_shirts">Custom T-shirts</a></li>
+                    <li><a href="/sweater">Custom Sweaters</a></li>
                     <li><a href="/Polo_Shirts">Custom Polo Shirts</a></li>
-                    <li><a href="/Shorts">Custom Shorts</a></li>
-                    <li><a href="/Tank_Tops">Custom Tank Tops</a></li>
+                    <li><a href="/T_shirts">Custom T-shirts</a></li>
+                    <li><a href="/Tank_Tops">Custom Tank Tops</a></li>                 
                     <li><a href="/Pants">Custom Pants</a></li>
-                    <li><a href="/Scarf">Custom Scarfs</a></li>
+                    <li><a href="/Shorts">Custom Shorts</a></li>
                     <li><a href="/Socks">Custom Socks</a></li>
-                    <li><a href="/Gloves">Custom Gloves</a></li>
                     <li><a href="/Hats">Custom Hats</a></li>
+                    <li><a href="/Scarf">Custom Scarfs</a></li>
+                    <li><a href="/Gloves">Custom Gloves</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -54,7 +55,6 @@
                 <a href="/resources" class="navlnk">Resources</a>
                 <ul class="dropdown-content">
                     <li><a href="/Sourcing_Guide">Sourcing Guide</a></li>
-                    <li><a href="/Suppliers">Suppliers</a></li>
                     <li><a href="/Shipping">Shipping</a></li>
                     <li><a href="/Selling">Selling</a></li>
                 </ul>
@@ -64,8 +64,6 @@
                 <ul class="dropdown-content">
                     <li><a href="/About_Sourcing">About Sourcing</a></li>
                     <li><a href="/Pricing">Pricing</a></li>
-                    <li><a href="/Products_We_Source">Products We Source</a></li>
-                    <li><a href="/How_We_Source_Suppliers">How We Source Suppliers</a></li>
                 </ul>
             </li>
             <li><a class="navlnk" href="/contact">Contact</a></li>
@@ -90,14 +88,23 @@
 </header>
 
 <script>
-    // Display time
-    const d = new Date();
-    const options = {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true,
-    };
-    document.getElementById("demo").innerHTML = d.toLocaleTimeString('en-US', options);
+    // Function to display the current time
+    function updateTime() {
+        const d = new Date();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit', // Added seconds for a live clock feel
+            hour12: true,
+        };
+        document.getElementById("demo").innerHTML = d.toLocaleTimeString('en-US', options);
+    }
+
+    // Initial call to display time immediately
+    updateTime();
+
+    // Update the time every second
+    setInterval(updateTime, 1000);
 
     // Toggle the navigation menu on hamburger click
     const hamburger = document.getElementById("hamburger");
@@ -118,16 +125,16 @@
         
         <!-- Product Listings -->
         <div class="products">
-            <a href="/Hoodies"><img src="img/PROJECT/hdie.jpg" alt="Hoodie"><h1>Hoodie</h1></a>
-            <a href="/Jackets"><img src="img/PROJECT/jkt.jpg" alt="Jacket"><h1>Jacket</h1></a>
-            <a href=""><img src="img/PROJECT/swtr.jpg" alt="Sweater"><h1>Sweater</h1></a>
+            <a href="/Hoodies"><img src="img/PROJECT/hdie.jpg" alt="Hoodie"><h1>Hoodies</h1></a>
+            <a href="/Jackets"><img src="img/PROJECT/jkt.jpg" alt="Jacket"><h1>Jackets</h1></a>
+            <a href=""><img src="img/PROJECT/swtr.jpg" alt="Sweater"><h1>Sweaters</h1></a>
         </div>
         <br><br><br><br>
 
         <div class="products">
-            <a href="/Polo_Shirts"><img src="img/PROJECT/ploshrt.jpg" alt="Polo Shirt"><h1>Polo Shirt</h1></a>
-            <a href="/T_shirts"><img src="img/PROJECT/shrt.jpg" alt="Shirt"><h1>T-Shirt</h1></a>
-            <a href="/Tank_Tops"><img src="img/PROJECT/top.jpeg" alt="Tank Top"><h1>Tank Top</h1></a>
+            <a href="/Polo_Shirts"><img src="img/PROJECT/ploshrt.jpg" alt="Polo Shirt"><h1>Polo Shirts</h1></a>
+            <a href="/T_shirts"><img src="img/PROJECT/shrt.jpg" alt="Shirt"><h1>T-Shirts</h1></a>
+            <a href="/Tank_Tops"><img src="img/PROJECT/top.jpeg" alt="Tank Top"><h1>Tank Tops</h1></a>
         </div>
         <br><br><br><br>
 
@@ -139,8 +146,8 @@
         <br><br><br><br>
 
         <div class="products">
-            <a href="/Hats"><img src="img/PROJECT/cap.jpeg" alt="Hat"><h1>Hat</h1></a>
-            <a href="/Scarf"><img src="img/PROJECT/scrfs.jpeg" alt="Scarf"><h1>Scarf</h1></a>
+            <a href="/Hats"><img src="img/PROJECT/cap.jpeg" alt="Hat"><h1>Hats</h1></a>
+            <a href="/Scarf"><img src="img/PROJECT/scrfs.jpeg" alt="Scarf"><h1>Scarfs</h1></a>
             <a href="/Gloves"><img src="img/PROJECT/gloves.webp" alt="Gloves"><h1>Gloves</h1></a>
         </div>
     </div>

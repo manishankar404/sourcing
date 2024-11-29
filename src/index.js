@@ -3,11 +3,23 @@ const app = express();
 const path = require("path");
 const hbs = require("hbs");
 const {collection,formcollection,tempPasswordReset} = require("./mongodb");
+const session = require("express-session");
 const templatePath = path.join(__dirname, "../tempelates");
 
 // Serve static files from the "public" directory
 app.use(express.static('public'));
 
+
+app.use(session({
+    secret: "project_sourcing", // Replace with a secure key
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 100000 } // Adjust session duration as needed
+}));
+app.use((req, res, next) => {
+    res.locals.isLoggedIn = req.session.isLoggedIn || false; // Default to false if not logged in
+    next();
+});
 app.use(express.json());
 app.set("view engine", "hbs");
 app.set("views", templatePath);
@@ -15,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Render home page
 app.get("/", (req, res) => {
-    res.render("home", { isLoggedIn: false });
+    res.render("home");
 });
 
 // Render login page
@@ -56,20 +68,15 @@ app.get("/sweater", (req, res) => res.render("sweater"));
 app.get("/Dropshipping", (req, res) => res.render("dropshipping"));
 app.get("/Private_Label_Service", (req, res) => res.render("private_label_service"));
 app.get("/Packing", (req, res) => res.render("packing"));
-app.get("/Others", (req, res) => res.render("others"));
 
 // Resource pages
 app.get("/Sourcing_Guide", (req, res) => res.render("sourcing_guide"));
-app.get("/Suppliers", (req, res) => res.render("suppliers"));
 app.get("/Shipping", (req, res) => res.render("shipping"));
 app.get("/Selling", (req, res) => res.render("selling"));
 
 // About pages
 app.get("/About_Sourcing", (req, res) => res.render("about_sourcing"));
 app.get("/Pricing", (req, res) => res.render("pricing"));
-app.get("/Products_We_Source", (req, res) => res.render("products_we_source"));
-app.get("/How_We_Source_Suppliers", (req, res) => res.render("how_we_source_suppliers"));
-
 
 app.get("/submissions", async (req, res) => {
     try {
@@ -106,16 +113,17 @@ app.post("/login", async (req, res) => {
     try {
         const check = await collection.findOne({ email: req.body.email });
 
-        if (check.password === req.body.password) {
-            // Login success
-            res.render("home", { isLoggedIn: true });
+        if (check && check.password === req.body.password) {
+            req.session.isLoggedIn = true; // Set session variable
+            res.redirect("/"); // Redirect to the home page
         } else {
             res.send("Wrong password");
         }
-    } catch {
+    } catch (err) {
         res.send("Wrong details");
     }
 });
+
 
 // Forget Password
 app.get("/forgot_password", (req, res) => res.render("forgot_password"));
@@ -149,8 +157,10 @@ app.post("/forgot_password", async (req, res) => {
 
 // Logout logic
 app.get("/logout", (req, res) => {
-    res.render("home", { isLoggedIn: false });
+    req.session.isLoggedIn = false; // Clear session variable
+    res.redirect("/"); // Redirect to the home page
 });
+
 
 // form submission logic
 app.post("/form", async (req, res) => {
