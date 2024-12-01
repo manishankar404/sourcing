@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>order confirmation</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 </head>
-<body class="product" id="BGhood">
+<body class="product">
 <header class="header">
     <div class="container">
         <!-- Navigation Menu -->
@@ -15,12 +15,14 @@
             <a href="/"><img src="/img/favicon-32x32.png" ></a>
             <a class="navlnk" href="/"> A-Z Clothes Sourcing </a>
         </div>
+
         <!-- Hamburger Icon for Mobile -->
         <div class="hamburger" id="hamburger">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
+
         <ul class="nav-menu" id="nav-menu">
             <li class="dropdown">
                 <a href="/products" class="navlnk">Products</a>
@@ -66,8 +68,10 @@
             <li><a class="navlnk" href="/contact">Contact</a></li>
             <li><a class="navlnk start-sourcing-btn" href="/form">Start Sourcing</a></li>
         </ul>
+
         <!-- Time -->
         <p id="demo" class="time"></p>
+
         <!-- Login and Signup Buttons -->
         <nav class="nav">
             {{#unless isLoggedIn}}
@@ -81,6 +85,7 @@
         </nav>
     </div>
 </header>
+
 <script>
     // Function to display the current time
     function updateTime() {
@@ -93,40 +98,29 @@
         };
         document.getElementById("demo").innerHTML = d.toLocaleTimeString('en-US', options);
     }
+
     // Initial call to display time immediately
     updateTime();
+
     // Update the time every second
     setInterval(updateTime, 1000);
+
     // Toggle the navigation menu on hamburger click
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("nav-menu");
+
     hamburger.addEventListener("click", () => {
         navMenu.classList.toggle("active");
     });
 </script>
-<div class="spacer"></div>
-<div class="products">
-  {{#each products}}
-    <div>
-      <img src="{{this.image}}" alt="{{this.name}}">
-      <h1>{{this.name}}</h1>
-      <p>Price: ₹{{this.price}}</p> <!-- Added ₹ symbol -->
-      <input type="number" id="quantity-{{this._id}}" value="1" min="1">
-      <button onclick="addToCart('{{this._id}}')">Add to Cart</button>
-    </div>
+<h1>Order Confirmed</h1>
+<p>Thank you for your purchase!</p>
+<p>Order Summary:</p>
+<ul>
+  {{#each order.items}}
+    <li>{{this.quantity}}x {{this.name}} - ${{multiply this.quantity this.price}}</li>
   {{/each}}
-</div>
-<script>
-    async function addToCart(productId) {
-        const quantity = document.getElementById(`quantity-${productId}`).value;
-        const response = await fetch('/cart/add', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ productId, quantity })
-        });
-        const data = await response.json();
-        alert(data.message);
-    }
-</script>
+</ul>
+<p>Total: ${{order.total}}</p>
 </body>
 </html>

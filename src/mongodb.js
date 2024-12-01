@@ -13,6 +13,7 @@ const ProductSchema = new mongoose.Schema({
     name: { type: String, required: true },
     price: { type: Number, required: true },
     image: { type: String }, // URL for the product image
+    category: { type: String, required: true },
 });
 const LoginSchema = new mongoose.Schema({
     email: {
@@ -70,10 +71,27 @@ const tempPasswordResetSchema = new mongoose.Schema({
         expires: 600, // Automatically delete after 10 minutes
     },
 });
-
+const OrderSchema = new mongoose.Schema({
+    items: [
+        {
+            productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
+            name: { type: String, required: true },
+            price: { type: Number, required: true },
+            quantity: { type: Number, required: true },
+        }
+    ],
+    total: { type: Number, required: true },
+    date: { type: Date, default: Date.now },
+});
+const AdminLoginSchema = new mongoose.Schema({
+    username: { type: String, required: true },
+    password: { type: String, required: true },
+});
+const adminCollection = new mongoose.model("AdminCollection", AdminLoginSchema);
+const Order = new mongoose.model("Order", OrderSchema);
 const tempPasswordReset = new mongoose.model("TempPasswordReset", tempPasswordResetSchema);
 const collection = new mongoose.model("Collection1", LoginSchema);
 const formcollection = new mongoose.model("FormCollection1", FormSchema);
-const Product = mongoose.model('Product', ProductSchema);
+const Product =new mongoose.model('Product', ProductSchema);
+module.exports = { collection, formcollection, tempPasswordReset, Product,Order,adminCollection };
 
-module.exports ={collection,formcollection,tempPasswordReset,Product} ;

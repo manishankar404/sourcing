@@ -141,5 +141,31 @@
          </div>
          <br><br><br><br>
     </div>
+    <h1 class="headingPDT">TOP CUSTOM JACKETS</h1> 
+   <div class="products">
+  {{#each products}}
+    <div>
+      <img src="{{this.image}}" alt="{{this.name}}">
+      <h1>{{this.name}}</h1>
+      <p>Price: ${{this.price}}</p>
+      <input type="number" id="quantity-{{this._id}}" value="1" min="1">
+      <button onclick="addToCart('{{this._id}}')">Add to Cart</button>
+    </div>
+  {{/each}}
+</div>
+<script>
+  async function addToCart(productId) {
+      const quantity = document.getElementById(`quantity-${productId}`).value;
+      const response = await fetch('/cart/add', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productId, quantity })
+      });
+
+      const data = await response.json();
+      alert(data.message);
+  }
+</script>
+
 </body>
 </html>
