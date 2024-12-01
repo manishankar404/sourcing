@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing</title>
+    <title>Order</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 </head>
-<body class="pricing">
+<body>
 
 <header class="header">
     <div class="container">
@@ -114,86 +114,40 @@
         navMenu.classList.toggle("active");
     });
 </script>
-<!-- Pricing Cards Section -->
-    <section class="pricing-section">
-        <h1 class="pricing-title">Pricing Plan</h1>
-        <div class="pricing-container">
-            <div class="pricing-card">
-                <h2>Professional</h2>
-                <p>Our experts offer <strong>PROFESSIONAL</strong> sourcing services. We evaluate suppliers, check the product quality, and ensure you get only qualitative products.</p>
-                <p class="highlight">You get 100% reliable suppliers with high product integrity.</p>
-                <a href="/form" class="contact-btn">Contact Us Now</a>
-            </div>
-            <div class="pricing-card">
-                <h2>Affordable</h2>
-                <p>Our sourcing services are <strong>ACCESSIBLE</strong> to small business owners. We even offer free quotes for your project.</p>
-                <p class="highlight">You get fully-fledged services at affordable prices.</p>
-                <a href="/form" class="contact-btn">Contact Us Now</a>
-            </div>
-            <div class="pricing-card">
-                <h2>Simple</h2>
-                <p>Our sourcing process is <strong>STRAIGHTFORWARD</strong> and transparent. You can manually review the suppliers.</p>
-                <p class="highlight">The easy process makes you get 100% risk-free business.</p>
-                <a href="/form" class="contact-btn">Contact Us Now</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Pricing Table Section -->
-    <section class="pricing-table-section">
-        <h2 class="table-title">A-Z Clothes Sourcing Services Prices</h2>
-        <p class="table-description">No upfront fee is charged when we start the sourcing service. We only charge when you are satisfied with our services, from sourcing to shipping. No hidden fees!</p>
-        <table class="pricing-table">
+    <div>
+        
+         <h1>Order Summary</h1>
+    
+    {{#if cart.length}}
+        <table>
             <thead>
                 <tr>
-                    <th>Order Amount</th>
-                    <th>Service Charge</th>
-                    <th>Payment Term</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Less than $1,000</td>
-                    <td>$100</td>
-                    <td>100% payment when place order.</td>
-                </tr>
-                <tr>
-                    <td>$1,001 - $3,000</td>
-                    <td>10%</td>
-                    <td>30% deposit and balance before shipping.</td>
-                </tr>
-                <tr>
-                    <td>$3,001 - $6,000</td>
-                    <td>9%</td>
-                    <td>30% deposit and balance before shipping.</td>
-                </tr>
-                <tr>
-                    <td>$6,001 - $10,000</td>
-                    <td>8%</td>
-                    <td>30% deposit and balance before shipping.</td>
-                </tr>
-                <tr>
-                    <td>$10,001 - $15,000</td>
-                    <td>7%</td>
-                    <td>30% deposit and balance before shipping.</td>
-                </tr>
-                <tr>
-                    <td>$15,001 - $20,000</td>
-                    <td>6.5%</td>
-                    <td>30% deposit and balance before shipping.</td>
-                </tr>
-                <tr>
-                    <td>$20,001 upwards</td>
-                    <td>6%</td>
-                    <td>Negotiable</td>
-                </tr>
+                {{#each cart}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{quantity}}</td>
+                        <td>{{price}}</td>
+                        <td>{{multiply price quantity}}</td>
+                    </tr>
+                {{/each}}
             </tbody>
         </table>
-        <div class="contact-section">
-            <h3>Ready to get started?</h3>
-            <p>Contact us today to source your new products and grow your business.</p>
-            <a href="/form" class="contact-btn">Contact Us</a>
-        </div>
-    </section>
+        <h2>Total Price: {{totalPrice}}</h2>
+
+        <form action="/order" method="POST">
+            <button type="submit">Place Order</button>
+        </form>
+    {{else}}
+        <p>Your cart is empty.</p>
+    {{/if}}
+    </div>
 </body>
 </html>

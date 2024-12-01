@@ -186,6 +186,98 @@ app.post("/form", async (req, res) => {
     }
 });
 
+// Add to cart
+app.post('/cart/add', async (req, res) => {
+    try {
+        const { productId, quantity } = req.body;
+
+        // Fetch product details using `await` in an async function
+        const product = await Product.findById(productId);
+
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+
+        // Initialize cart if it doesn't exist
+        if (!req.session.cart) req.session.cart = [];
+
+        const cart = req.session.cart;
+        const existingItem = cart.find(item => item.productId === productId);
+
+        if (existingItem) {
+            existingItem.quantity += parseInt(quantity, 10);
+        } else {
+            cart.push({
+                productId,
+                quantity: parseInt(quantity, 10),
+                name: product.name,
+                price: product.price,
+            });
+        }
+
+        req.session.cart = cart;
+        res.json({ message: 'Item added to cart', cart });
+    } catch (error) {
+        res.status(500).json({ message: 'Error adding item to cart', error: error.message });
+    }
+});
+
+// Get cart
+app.get('/cart', (req, res) => {
+    res.json(req.session.cart || []);
+});
+
+// Remove from cart
+app.post('/cart/remove', (req, res) => {
+    try {
+        const { productId } = req.body;
+
+        if (!req.session.cart) {
+            return res.status(400).json({ message: 'Cart is empty' });
+        }
+
+        req.session.cart = req.session.cart.filter(item => item.productId !== productId);
+
+        res.json({ message: 'Item removed', cart: req.session.cart });
+    } catch (error) {
+        res.status(500).json({ message: 'Error removing item from cart', error: error.message });
+    }
+});
+
+// Display the order page
+app.get('/order', (req, res) => {
+    const cart = req.session.cart || [];
+    const totalPrice = cart.reduce((sum, item) => sum + item.quantity * item.price, 0);
+
+    res.render('order', { cart, totalPrice });
+});
+
+// Place an order
+app.post('/order', async (req, res) => {
+    try {
+        const cart = req.session.cart || [];
+        if (cart.length === 0) {
+            return res.status(400).json({ message: 'Cart is empty. Cannot place order.' });
+        }
+
+        // Create an order object
+        const order = {
+            items: cart,
+            total: cart.reduce((sum, item) => sum + item.quantity * item.price, 0),
+            date: new Date(),
+        };
+
+        // Save the order to the database (you'd replace this with your actual DB logic)
+        // Example: await Order.create(order);
+
+        // Clear the cart after placing the order
+        req.session.cart = [];
+
+        res.json({ message: 'Order placed successfully!', order });
+    } catch (error) {
+        res.status(500).json({ message: 'Error placing order', error: error.message });
+    }
+});
 
 app.listen(3000, () => {
     console.log("Server running on http://localhost:3000");

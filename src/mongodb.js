@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 
-
-
 mongoose.connect("mongodb://localhost:27017/LoginSignup")
     .then(() => {
         console.log("MongoDB connected");
@@ -11,6 +9,11 @@ mongoose.connect("mongodb://localhost:27017/LoginSignup")
     });
 
 
+const ProductSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    price: { type: Number, required: true },
+    image: { type: String }, // URL for the product image
+});
 const LoginSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -71,5 +74,6 @@ const tempPasswordResetSchema = new mongoose.Schema({
 const tempPasswordReset = new mongoose.model("TempPasswordReset", tempPasswordResetSchema);
 const collection = new mongoose.model("Collection1", LoginSchema);
 const formcollection = new mongoose.model("FormCollection1", FormSchema);
+const Product = mongoose.model('Product', ProductSchema);
 
-module.exports ={collection,formcollection,tempPasswordReset} ;
+module.exports ={collection,formcollection,tempPasswordReset,Product} ;
