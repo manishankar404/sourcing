@@ -74,9 +74,11 @@
                 <a href="/login" class="btn login-btn">Login</a>
                 <a href="/signup" class="btn signup-btn">Sign Up</a>
             {{/unless}}
-            <!-- Logout button -->
             {{#if isLoggedIn}}
-                <a href="/logout" class="btn logout-btn">Logout</a>
+                <div class="profile-logout-container">
+                    <a href="/profile" class="btn profile-btn">Profile</a>
+                    <a href="/logout" class="btn logout-btn">Logout</a>
+                </div>
             {{/if}}
         </nav>
     </div>
@@ -111,7 +113,7 @@
       <img src="{{this.image}}" alt="{{this.name}}">
       <h1>{{this.name}}</h1>
       <p>Price: ₹{{this.price}}</p> <!-- Added ₹ symbol -->
-      <input type="number" id="quantity-{{this._id}}" value="1" min="1">
+      <input type="number" id="quantity-{{this._id}}" value="100" min="100">
       <button onclick="addToCart('{{this._id}}')">Add to Cart</button>
     </div>
   {{/each}}

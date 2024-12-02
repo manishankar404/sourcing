@@ -1,34 +1,20 @@
 const mongoose = require("mongoose");
-
 mongoose.connect("mongodb://localhost:27017/LoginSignup")
-    .then(() => {
-        console.log("MongoDB connected");
-    })
-    .catch((err) => {
-        console.log("Failed to connect:", err);
-    });
-
-
+    .then(() => {console.log("MongoDB connected");})
+    .catch((err) => {console.log("Failed to connect:", err);});
 const ProductSchema = new mongoose.Schema({
     name: { type: String, required: true },
     price: { type: Number, required: true },
     image: { type: String }, // URL for the product image
-    category: { type: String, required: true },
-});
+    category: { type: String, required: true },});
 const LoginSchema = new mongoose.Schema({
-    email: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    petName: { // New field for security question
-        type: String,
-        required: true
-    }
-});
+    email: {type: String,required: true},
+    password: {type: String,required: true},
+    petName: { type: String,required: true},// New field for security question
+    fullName: { type: String }, // New field for full name
+    companyName: { type: String }, // New field for company name
+    website: { type: String }, // New field for website
+    phone: { type: String },}); // New field for phone
 const FormSchema = new mongoose.Schema({
     name: {
         type: String,

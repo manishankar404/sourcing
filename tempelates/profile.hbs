@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>user profile</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 </head>
-<body class="product" id="BGcoat">
+<body class="producthome">
 <header class="header">
     <div class="container">
         <!-- Navigation Menu -->
@@ -15,14 +15,12 @@
             <a href="/"><img src="/img/favicon-32x32.png" ></a>
             <a class="navlnk" href="/"> A-Z Clothes Sourcing </a>
         </div>
-
         <!-- Hamburger Icon for Mobile -->
         <div class="hamburger" id="hamburger">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
-
         <ul class="nav-menu" id="nav-menu">
             <li class="dropdown">
                 <a href="/products" class="navlnk">Products</a>
@@ -68,10 +66,8 @@
             <li><a class="navlnk" href="/contact">Contact</a></li>
             <li><a class="navlnk start-sourcing-btn" href="/form">Start Sourcing</a></li>
         </ul>
-
         <!-- Time -->
         <p id="demo" class="time"></p>
-
         <!-- Login and Signup Buttons -->
         <nav class="nav">
             {{#unless isLoggedIn}}
@@ -87,7 +83,6 @@
         </nav>
     </div>
 </header>
-
 <script>
     // Function to display the current time
     function updateTime() {
@@ -100,58 +95,31 @@
         };
         document.getElementById("demo").innerHTML = d.toLocaleTimeString('en-US', options);
     }
-
     // Initial call to display time immediately
     updateTime();
-
     // Update the time every second
     setInterval(updateTime, 1000);
-
     // Toggle the navigation menu on hamburger click
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("nav-menu");
-
     hamburger.addEventListener("click", () => {
         navMenu.classList.toggle("active");
     });
 </script>
-<div class="spacer"></div>
-    
-    <!-- Product Section -->
-    
-    <br><br><br>
-    <div>
-        <h1 class="headingPDT">TOP CUSTOM PRODUCTS</h1>   
-        <br><br><br><br>
-        
-        <!-- Product Listings -->
-        <div class="productspage">
-            <a href="/Hoodies"><img src="img/PROJECT/hdie.jpg" alt="Hoodie"><h1>Hoodies</h1></a>
-            <a href="/Jackets"><img src="img/PROJECT/jkt.jpg" alt="Jacket"><h1>Jackets</h1></a>
-            <a href=""><img src="img/PROJECT/swtr.jpg" alt="Sweater"><h1>Sweaters</h1></a>
+<main class="profile">
+    <div class="profile-container">
+        <div class="profile-details">
+            <h2>Welcome, {{fullName}}!</h2>
+            <p><strong>Email:</strong> {{email}}</p>
+            <p><strong>Company Name:</strong> {{companyName}}</p>
+            <p><strong>Company Website:</strong> <a href="{{website}}" target="_blank">{{website}}</a></p>
+            <p><strong>Phone:</strong> {{phone}}</p>
         </div>
-        <br><br><br><br>
-
-        <div class="productspage">
-            <a href="/Polo_Shirts"><img src="img/PROJECT/ploshrt.jpg" alt="Polo Shirt"><h1>Polo Shirts</h1></a>
-            <a href="/T_shirts"><img src="img/PROJECT/shrt.jpg" alt="Shirt"><h1>T-Shirts</h1></a>
-            <a href="/Tank_Tops"><img src="img/PROJECT/top.jpeg" alt="Tank Top"><h1>Tank Tops</h1></a>
-        </div>
-        <br><br><br><br>
-
-        <div class="productspage">
-            <a href="/Pants"><img src="img/PROJECT/pnts.jpeg" alt="Pants"><h1>Pants</h1></a>
-            <a href="/Shorts"><img src="img/PROJECT/short.jpeg" alt="Shorts"><h1>Shorts</h1></a>
-            <a href="/Socks"><img src="img/PROJECT/scks.webp" alt="Socks"><h1>Socks</h1></a>
-        </div>
-        <br><br><br><br>
-
-        <div class="productspage">
-            <a href="/Hats"><img src="img/PROJECT/cap.jpeg" alt="Hat"><h1>Hats</h1></a>
-            <a href="/Scarf"><img src="img/PROJECT/scrfs.jpeg" alt="Scarf"><h1>Scarfs</h1></a>
-            <a href="/Gloves"><img src="img/PROJECT/gloves.webp" alt="Gloves"><h1>Gloves</h1></a>
+        <div class="profile-actions">
+            <a href="/edit-profile" class="btn">Edit Profile</a>
+            <a href="/logout" class="btn">Logout</a>
         </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br>
+</main>
 </body>
 </html>

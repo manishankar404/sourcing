@@ -71,18 +71,6 @@
 
         <!-- Time -->
         <p id="demo" class="time"></p>
-
-        <!-- Login and Signup Buttons -->
-        <nav class="nav">
-            {{#unless isLoggedIn}}
-                <a href="/login" class="btn login-btn">Login</a>
-                <a href="/signup" class="btn signup-btn">Sign Up</a>
-            {{/unless}}
-            <!-- Logout button -->
-            {{#if isLoggedIn}}
-                <a href="/logout" class="btn logout-btn">Logout</a>
-            {{/if}}
-        </nav>
     </div>
 </header>
 
@@ -113,17 +101,21 @@
         navMenu.classList.toggle("active");
     });
 </script>
-<h1>Add Product</h1>
-<form action="/admin/add-product" method="POST" enctype="multipart/form-data">
+<br><br><br><br><br>
+<form id="add-product-form" action="/admin/add-product" method="POST" enctype="multipart/form-data">
+    <h1 class="heroaddproduct">Add Product</h1>
     <!-- Product Name -->
     <label for="name">Product Name:</label>
     <input type="text" name="name" id="name" required><br><br>
+    
     <!-- Product Price -->
     <label for="price">Price:</label>
     <input type="number" name="price" value="100" id="price" required><br><br>
+    
     <!-- Product Image -->
     <label for="image">Product Image:</label>
     <input type="file" name="image" id="image" accept="image/*" required><br><br>
+    
     <!-- Product Category -->
     <label for="category">Category:</label>
     <select name="category" id="category" required>
@@ -140,7 +132,7 @@
         <option value="Scarf">Custom Scarfs</option>
         <option value="Gloves">Custom Gloves</option>
     </select><br><br>
-
+    
     <!-- Submit Button -->
     <button type="submit">Add Product</button>
 </form>

@@ -8,7 +8,6 @@
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 </head>
 <body class="producthome">
-
 <header class="header">
     <div class="container">
         <!-- Navigation Menu -->
@@ -16,7 +15,6 @@
             <a href="/"><img src="/img/favicon-32x32.png" ></a>
             <a class="navlnk" href="/"> A-Z Clothes Sourcing </a>
         </div>
-
         <!-- Hamburger Icon for Mobile -->
         <div class="hamburger" id="hamburger">
             <div class="bar"></div>
@@ -68,24 +66,23 @@
             <li><a class="navlnk" href="/contact">Contact</a></li>
             <li><a class="navlnk start-sourcing-btn" href="/form">Start Sourcing</a></li>
         </ul>
-
         <!-- Time -->
         <p id="demo" class="time"></p>
-
         <!-- Login and Signup Buttons -->
         <nav class="nav">
             {{#unless isLoggedIn}}
                 <a href="/login" class="btn login-btn">Login</a>
                 <a href="/signup" class="btn signup-btn">Sign Up</a>
             {{/unless}}
-            <!-- Logout button -->
             {{#if isLoggedIn}}
-                <a href="/logout" class="btn logout-btn">Logout</a>
+                <div class="profile-logout-container">
+                    <a href="/profile" class="btn profile-btn">Profile</a>
+                    <a href="/logout" class="btn logout-btn">Logout</a>
+                </div>
             {{/if}}
         </nav>
     </div>
 </header>
-
 <script>
     // Function to display the current time
     function updateTime() {
@@ -98,35 +95,29 @@
         };
         document.getElementById("demo").innerHTML = d.toLocaleTimeString('en-US', options);
     }
-
     // Initial call to display time immediately
     updateTime();
-
     // Update the time every second
     setInterval(updateTime, 1000);
-
     // Toggle the navigation menu on hamburger click
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("nav-menu");
-
     hamburger.addEventListener("click", () => {
         navMenu.classList.toggle("active");
     });
 </script>
-
-    <div class="modal-content">
-        <h2>Sign Up</h2>
-        <form action="/signup" method="post">
-            {{!-- <label for="signup-email">Email:</label> --}}
-            <input type="email" id="signup-email" name="email" placeholder="email" required>
-
-            {{!-- <label for="signup-password">Password:</label> --}}
-            <input type="password" id="signup-password" name="password" placeholder="password" required>
-
-            <input type="text" id="pet-name" name="petName" placeholder="What is your favorite pet's name?" required>
-
-            <button type="submit" class="btn">Sign Up</button>
-        </form>
-    </div>
+<div class="modal-content">
+    <h2>Sign Up</h2>
+    <form action="/signup" method="post">
+        <input type="email" id="signup-email" name="email" placeholder="Email*" required>
+        <input type="password" id="signup-password" name="password" placeholder="Password*" required>
+        <input type="text" id="pet-name" name="petName" placeholder="What is your favorite pet's name?*" required>
+        <input type="text" id="full-name" name="fullName" placeholder="Full Name*" required>
+        <input type="text" id="company-name" name="companyName" placeholder="Company Name (Optional)">
+        <input type="url" id="website" name="website" placeholder="Website URL (Optional)">
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number (Optional)">
+        <button type="submit" class="btn">Sign Up</button>
+    </form>
+</div>
 </body>
 </html>

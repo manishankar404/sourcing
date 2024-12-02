@@ -93,23 +93,19 @@ tbody tr:hover {
     list-style: none;
     gap: 1rem;
 }
-
 .nav-menu li {
     position: relative;
 }
-
 .navlnk {
     color: #000000;
     text-decoration: none;
     font-weight: bold;
     padding: 0.5rem 0;
 }
-
 .navlnk:hover {
     cursor: pointer;
     color: rgb(255, 255, 255);
 }
-
 /* Dropdown Menu */
 .dropdown-content {
     display: none;
@@ -124,11 +120,9 @@ tbody tr:hover {
     border-radius: 4px;
     list-style: none;
 }
-
 a {
     text-decoration: none;
 }
-
 .dropdown-content li a {
     padding: 0.8rem 1.5rem;
     display: block;
@@ -136,15 +130,12 @@ a {
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
-
 .dropdown-content li a:hover {
     background-color: blanchedalmond;
 }
-
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 /* Time Styling */
 .time {
     color: rgb(0, 0, 0);
@@ -152,7 +143,6 @@ a {
     white-space: nowrap;
     margin: 0 2rem;
 }
-
 /* Buttons */
 .nav .btn {
     color: white;
@@ -164,11 +154,9 @@ a {
     font-size: 1rem;
     margin-left: 0.5rem;
 }
-
 .nav .btn:hover {
     background-color: #0056b3;
 }
-
 .start-sourcing-btn {
     background-color: #ffffff;
     color: blue;
@@ -178,12 +166,44 @@ a {
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
 .start-sourcing-btn:hover {
     background-color: #FF9800;
     transform: scale(1.05);
 }
-
+/* Profile and Logout Buttons Container */
+.profile-logout-container {
+    display: flex;
+    gap: 1rem; /* Space between buttons */
+    align-items: center;
+}
+/* Profile Button Styling */
+.profile-btn {
+    color: white;
+    background-color: #4CAF50; /* Green button for Profile */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+.profile-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+/* Logout Button Styling */
+.logout-btn {
+    color: white;
+    background-color: #f44336; /* Red button for Logout */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+.logout-btn:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
 /* Hero Section */
 .hero {
     text-align: center;
@@ -192,18 +212,61 @@ a {
     color: black;
     padding-top: 160px;
 }
-
 .hero h2 {
     font-size: 1.5rem;
     color: #FF9800;
 }
-
 .hero h1 {
     font-size: 1.2rem;
     color: #433878;
 }
-
-
+/* Styling specific to the Add Product Form */
+.heroaddproduct{
+    text-align: center;
+    font-size: 1.5rem;
+    color: #000000;
+}
+#add-product-form {
+    max-width: 600px;
+    margin: 0 auto; /* Center the form on the page */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+#add-product-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+#add-product-form input[type="text"],
+#add-product-form input[type="number"],
+#add-product-form input[type="file"],
+#add-product-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+#add-product-form button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#add-product-form button:hover {
+    background-color: #0056b3;
+}
+/* add-product Form Styling */
 /* Form Styling */
 .contact-container {
     max-width: 800px;
@@ -434,7 +497,66 @@ label {
     border-radius: 8px;
     text-align: center;
 }
+/* edit-profile */
+/* Specific Styles for the Edit Profile Form */
+.edit-profile-form {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+/* Form Labels */
+.edit-profile-form .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+/* Form Inputs */
+.edit-profile-form .form-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Input Focus Effect */
+.edit-profile-form .form-input:focus {
+    border-color: #4CAF50; /* Green border on focus */
+    outline: none;
+}
+
+/* Submit Button */
+.edit-profile-form .form-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Full-width button */
+}
+
+/* Button Hover Effect */
+.edit-profile-form .form-button:hover {
+    background-color: #45a049;
+}
+
+/* Form Error Message (optional) */
+.edit-profile-form .error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+/* edit-profile */
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
@@ -460,6 +582,73 @@ label {
         margin: 2rem auto;
     }
 }
+/* Profile Container */
+.profile {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+.profile-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.profile-details {
+    margin-bottom: 30px;
+}
+.profile-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+.profile-details p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+.profile-details a {
+    color: #007bff;
+    text-decoration: none;
+}
+.profile-details a:hover {
+    text-decoration: underline;
+}
+/* Profile Actions */
+.profile-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.profile-actions .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+.profile-actions .btn:hover {
+    background-color: #0056b3;
+}
+/* Responsiveness */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 15px;
+    }
+
+    .profile-details h2 {
+        font-size: 20px;
+    }
+
+    .profile-details p {
+        font-size: 14px;
+    }
+}
+/* profile */
 /* product */
 .product{
     background-image:none;

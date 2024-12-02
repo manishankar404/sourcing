@@ -96,30 +96,34 @@ app.get("/submissions", async (req, res) => {
 });
 // Signup logic
 app.post("/signup", async (req, res) => {
-    const data = {
-        email: req.body.email,
-        password: req.body.password,
-        petName: req.body.petName // Save the pet name
-    };
-    try {
-        await collection.insertMany([data]);
-        res.render("home", { isLoggedIn: false });
-    } catch (err) {
-        res.status(500).send("Error during signup");
+    const { email, password, petName, fullName, companyName, website, phone } = req.body;
+    // Ensure required fields are provided
+    if (!email || !password || !petName) {
+        return res.status(400).send("Missing required fields: email, password, and petName");
     }
+    const data = { email, password, petName, fullName, companyName, website, phone };
+    try {
+        const user = new collection(data);  // Create a new document instance
+        await user.save();
+        res.redirect("/login"); // Redirect to login after successful signup
+    }catch (err) {
+        console.error("Error during signup:", err);
+        res.status(500).send("An error occurred during signup: " + err.message);
+    }    
 });
 // Login logic
 app.post("/login", async (req, res) => {
     try {
-        const check = await collection.findOne({ email: req.body.email });
-        if (check && check.password === req.body.password) {
-            req.session.isLoggedIn = true; // Set session variable
-            res.redirect("/"); // Redirect to the home page
+        const user = await collection.findOne({ email: req.body.email });
+        if (user && user.password === req.body.password) {
+            req.session.isLoggedIn = true;
+            req.session.email = user.email; // Store email in session
+            res.redirect("/profile");
         } else {
-            res.send("Wrong password");
+            res.send("Invalid email or password");
         }
     } catch (err) {
-        res.send("Wrong details");
+        res.status(500).send("Error during login: " + err.message);
     }
 });
 // Forget Password
@@ -324,6 +328,61 @@ app.get("/admin", (req, res) => {
 app.get("/admin/logout", (req, res) => {
     req.session.isAdminLoggedIn = false; // Clear session
     res.redirect("/admin/login"); // Redirect to admin login
+});
+app.get("/profile", async (req, res) => {
+    if (!req.session.isLoggedIn) {
+        return res.redirect("/login");
+    }
+    try {
+        const user = await collection.findOne({ email: req.session.email });
+        if (!user) {
+            return res.status(404).send("User not found");
+        }
+        res.render("profile", {
+            fullName: user.fullName,
+            email: user.email,
+            companyName: user.companyName,
+            website: user.website,
+            phone: user.phone,
+        });
+    } catch (err) {
+        res.status(500).send("Error loading profile: " + err.message);
+    }
+});
+app.get("/edit-profile", async (req, res) => {
+    if (!req.session.isLoggedIn) {
+        return res.redirect("/login");
+    }
+    try {
+        const user = await collection.findOne({ email: req.session.email });
+        if (!user) {
+            return res.status(404).send("User not found");
+        }
+        res.render("edit-profile", {
+            fullName: user.fullName,
+            email: user.email,
+            companyName: user.companyName,
+            website: user.website,
+            phone: user.phone,
+        });
+    } catch (err) {
+        res.status(500).send("Error loading edit profile: " + err.message);
+    }
+});
+app.post("/edit-profile", async (req, res) => {
+    const { fullName, companyName, website, phone } = req.body;
+    if (!req.session.isLoggedIn) {
+        return res.redirect("/login");
+    }
+    try {
+        await collection.updateOne(
+            { email: req.session.email },
+            { $set: { fullName, companyName, website, phone } }
+        );
+        res.redirect("/profile");
+    } catch (err) {
+        res.status(500).send("Error updating profile: " + err.message);
+    }
 });
 app.listen(3000, () => {
     console.log("Server running on http://localhost:3000");

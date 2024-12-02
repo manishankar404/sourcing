@@ -8,21 +8,19 @@
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 </head>
 <body class="producthome">
-    <header class="header">
+<header class="header">
     <div class="container">
         <!-- Navigation Menu -->
         <div class="logo" style="display: flex;">
             <a href="/"><img src="/img/favicon-32x32.png" ></a>
             <a class="navlnk" href="/"> A-Z Clothes Sourcing </a>
         </div>
-
         <!-- Hamburger Icon for Mobile -->
         <div class="hamburger" id="hamburger">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
-
         <ul class="nav-menu" id="nav-menu">
             <li class="dropdown">
                 <a href="/products" class="navlnk">Products</a>
@@ -68,24 +66,23 @@
             <li><a class="navlnk" href="/contact">Contact</a></li>
             <li><a class="navlnk start-sourcing-btn" href="/form">Start Sourcing</a></li>
         </ul>
-
         <!-- Time -->
         <p id="demo" class="time"></p>
-
-        <!-- Login and Signup Buttons -->
+        <!-- Profile and Logout Buttons -->
         <nav class="nav">
             {{#unless isLoggedIn}}
                 <a href="/login" class="btn login-btn">Login</a>
                 <a href="/signup" class="btn signup-btn">Sign Up</a>
             {{/unless}}
-            <!-- Logout button -->
             {{#if isLoggedIn}}
-                <a href="/logout" class="btn logout-btn">Logout</a>
+                <div class="profile-logout-container">
+                    <a href="/profile" class="btn profile-btn">Profile</a>
+                    <a href="/logout" class="btn logout-btn">Logout</a>
+                </div>
             {{/if}}
         </nav>
     </div>
 </header>
-
 <script>
     // Function to display the current time
     function updateTime() {
