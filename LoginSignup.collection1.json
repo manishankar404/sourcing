@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "6748a00e24bd9fc3e4014ec1"
+  },
+  "email": "mani@gmail.com",
+  "password": "mani123",
+  "petName": "pet",
+  "__v": 0,
+  "companyName": "mani and co limited",
+  "fullName": "manishankar",
+  "phone": "1234567890",
+  "website": "https://github.com/manishankar404/sourcing"
+}]

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/LoginSignup")
+// mongoose.connect("mongodb://localhost:27017/LoginSignup")
+mongoose.connect("mongodb+srv://manishankar:mani1430fire@sourcing.z6c6p.mongodb.net/?retryWrites=true&w=majority&appName=sourcing")
     .then(() => {console.log("MongoDB connected");})
     .catch((err) => {console.log("Failed to connect:", err);});
 const ProductSchema = new mongoose.Schema({
