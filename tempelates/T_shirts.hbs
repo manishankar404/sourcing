@@ -117,31 +117,30 @@
     });
 </script>
 <div class="spacer"></div>
-    
-    <br><br><br>
+        <h1 class="headingPDT">TOP CUSTOM T-SHIRTS</h1> 
+   <div class="products">
+  {{#each products}}
     <div>
-        <h1 class="headingPDT">
-            TOP CUSTOM T-SHIRTS
-        </h1>   
-        <br><br><br><br><br><br>
-        <div class="products">
-                <a href="/form"><img src="img/SHIRTS/shirt_1.jpeg"><h1>Crew Neck</h1></a>
-                <a href="/form"><img src="img/SHIRTS/shirt_2.jpeg"><h1>Tie-Dye T-shirt</h1></a>
-                <a href="/form"><img src="img/SHIRTS/shirt_3.jpeg"><h1>Tri-Blend V-Neck T-shirt</h1></a>
-        </div>
-        <br><br><br><br>
-        <div class="products">
-            <a href="/form"><img src="img/SHIRTS/shirt_4.jpeg"><h1>Pocket Tee</h1></a>
-            <a href="/form"><img src="img/SHIRTS/shirt_5.jpeg"><h1>Performance Shirt</h1></a>
-            <a href="/form"><img src="img/SHIRTS/shirt_6.jpeg"><h1>Ringer</h1></a>
-         </div>
-         <br><br><br><br>
-         <div class="products">
-            <a href="/form"><img src="img/SHIRTS/shirt_7.jpeg"><h1>Henley Shirt</h1></a>
-            <a href="/form"><img src="img/SHIRTS/shirt_8.jpeg"><h1>Raglan T-shirt</h1></a>
-            <a href="/form"><img src="img/SHIRTS/shirt_9.jpeg"><h1>Garment Dyed T-shirt</h1></a>
-         </div>
-         <br><br><br><br>
+      <img src="{{this.image}}" alt="{{this.name}}">
+      <h1>{{this.name}}</h1>
+      <p>Price: ${{this.price}}</p>
+      <input type="number" id="quantity-{{this._id}}" value="100" min="100">
+      <button onclick="addToCart('{{this._id}}')">Add to Cart</button>
     </div>
+  {{/each}}
+</div>
+<script>
+  async function addToCart(productId) {
+      const quantity = document.getElementById(`quantity-${productId}`).value;
+      const response = await fetch('/cart/add', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productId, quantity })
+      });
+
+      const data = await response.json();
+      alert(data.message);
+  }
+</script>
 </body>
 </html>

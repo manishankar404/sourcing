@@ -117,31 +117,30 @@
     });
 </script>
 <div class="spacer"></div>
-    
-    <br><br><br>
+        <h1 class="headingPDT">TOP CUSTOM SOCKS</h1> 
+   <div class="products">
+  {{#each products}}
     <div>
-        <h1 class="headingPDT">
-            TOP CUSTOM SOCKS
-        </h1>   
-        <br><br><br><br><br><br>
-        <div class="products">
-                <a href="/form"><img src="img/SOCKS/socks_1.webp"><h1>Athletic Socks</h1></a>
-                <a href="/form"><img src="img/SOCKS/socks_2.webp"><h1>Crew Socks</h1></a>
-                <a href="/form"><img src="img/SOCKS/socks_3.webp"><h1>Fully Custom Socks</h1></a>
-        </div>
-        <br><br><br><br>
-        <div class="products">
-            <a href="/form"><img src="img/SOCKS/socks_4.webp"><h1>Fuzzy Socks</h1></a>
-            <a href="/form"><img src="img/SOCKS/socks_5.webp"><h1>Mid Length Socks</h1></a>
-            <a href="/form"><img src="img/SOCKS/socks_6.webp"><h1>No Show Socks</h1></a>
-         </div>
-         <br><br><br><br>
-         <div class="products">
-            <a href="/form"><img src="img/SOCKS/socks_7.webp"><h1>Non-Slip Socks</h1></a>
-            <a href="/form"><img src="img/SOCKS/socks_8.webp"><h1>Kids Socks</h1></a>
-            <a href="/form"><img src="img/SOCKS/socks_9.webp"><h1>Sports Socks</h1></a>
-         </div>
-         <br><br><br><br>
+      <img src="{{this.image}}" alt="{{this.name}}">
+      <h1>{{this.name}}</h1>
+      <p>Price: ${{this.price}}</p>
+      <input type="number" id="quantity-{{this._id}}" value="100" min="100">
+      <button onclick="addToCart('{{this._id}}')">Add to Cart</button>
     </div>
+  {{/each}}
+</div>
+<script>
+  async function addToCart(productId) {
+      const quantity = document.getElementById(`quantity-${productId}`).value;
+      const response = await fetch('/cart/add', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productId, quantity })
+      });
+
+      const data = await response.json();
+      alert(data.message);
+  }
+</script>
 </body>
 </html>

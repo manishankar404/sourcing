@@ -62,16 +62,96 @@ app.get("/Jackets", async (req, res) => {
         res.status(500).send("Error fetching jackets: " + err);
     }
 });
-app.get("/T_shirts", (req, res) => res.render("T_shirts"));
-app.get("/Polo_Shirts", (req, res) => res.render("polo_shirts"));
-app.get("/Shorts", (req, res) => res.render("shorts"));
-app.get("/Tank_Tops", (req, res) => res.render("Tank_Tops"));
-app.get("/Pants", (req, res) => res.render("pants"));
-app.get("/Scarf", (req, res) => res.render("Scarf"));
-app.get("/Socks", (req, res) => res.render("socks"));
-app.get("/Gloves", (req, res) => res.render("gloves"));
-app.get("/Hats", (req, res) => res.render("hats"));
-app.get("/sweater", (req, res) => res.render("sweater"));
+app.get("/sweater", async (req, res) => {
+    try {
+        const products = await Product.find({ category: "Sweaters" }); // Fetch only sweater
+        res.render("sweater", { products });
+    } catch (err) {
+        console.error("Error fetching jackets:", err);
+        res.status(500).send("Error fetching jackets: " + err);
+    }
+});
+app.get("/Polo_Shirts", async (req, res) => {
+    try {
+        const products = await Product.find({ category: "Polo_Shirts" }); // Fetch only Polo_Shirts
+        res.render("Polo_Shirts", { products });
+    } catch (err) {
+        console.error("Error fetching jackets:", err);
+        res.status(500).send("Error fetching jackets: " + err);
+    }
+});
+app.get("/T_shirts", async (req, res) => {
+    try {
+        const products = await Product.find({ category: "T_Shirts" }); // Fetch only T_shirts
+        res.render("T_shirts", { products });
+    } catch (err) {
+        console.error("Error fetching jackets:", err);
+        res.status(500).send("Error fetching jackets: " + err);
+    }
+});
+app.get("/Tank_Tops", async (req, res) => {
+    try {
+        const products = await Product.find({ category: "Tank_Tops" }); // Fetch only Tank_Tops
+        res.render("Tank_Tops", { products });
+    } catch (err) {
+        console.error("Error fetching jackets:", err);
+        res.status(500).send("Error fetching jackets: " + err);
+    }
+});
+app.get("/pants", async (req, res) => {
+    try {
+        const products = await Product.find({ category: "Pants" }); // Fetch only pants
+        res.render("pants", { products });
+    } catch (err) {
+        console.error("Error fetching jackets:", err);
+        res.status(500).send("Error fetching jackets: " + err);
+    }
+});
+app.get("/shorts", async (req, res) => {
+    try {
+        const products = await Product.find({ category: "Shorts" }); // Fetch only shorts
+        res.render("shorts", { products });
+    } catch (err) {
+        console.error("Error fetching jackets:", err);
+        res.status(500).send("Error fetching jackets: " + err);
+    }
+});
+app.get("/socks", async (req, res) => {
+    try {
+        const products = await Product.find({ category: "Socks" }); // Fetch only socks
+        res.render("socks", { products });
+    } catch (err) {
+        console.error("Error fetching jackets:", err);
+        res.status(500).send("Error fetching jackets: " + err);
+    }
+});
+app.get("/hats", async (req, res) => {
+    try {
+        const products = await Product.find({ category: "Hats" }); // Fetch only hats
+        res.render("hats", { products });
+    } catch (err) {
+        console.error("Error fetching jackets:", err);
+        res.status(500).send("Error fetching jackets: " + err);
+    }
+});
+app.get("/Scarf", async (req, res) => {
+    try {
+        const products = await Product.find({ category: "Scarf" }); // Fetch only Scarf
+        res.render("Scarf", { products });
+    } catch (err) {
+        console.error("Error fetching jackets:", err);
+        res.status(500).send("Error fetching jackets: " + err);
+    }
+});
+app.get("/gloves", async (req, res) => {
+    try {
+        const products = await Product.find({ category: "Gloves" }); // Fetch only gloves
+        res.render("gloves", { products });
+    } catch (err) {
+        console.error("Error fetching jackets:", err);
+        res.status(500).send("Error fetching jackets: " + err);
+    }
+});
 // Individual service pages
 app.get("/Dropshipping", (req, res) => res.render("dropshipping"));
 app.get("/Private_Label_Service", (req, res) => res.render("private_label_service"));

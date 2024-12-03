@@ -117,31 +117,30 @@
     });
 </script>
 <div class="spacer"></div>
-    
-    <br><br><br>
+        <h1 class="headingPDT">TOP CUSTOM TANK-TOPS</h1> 
+   <div class="products">
+  {{#each products}}
     <div>
-        <h1 class="headingPDT">
-            TOP CUSTOM Pants
-        </h1>   
-        <br><br><br><br><br><br>
-        <div class="products">
-            <a href="/form"><img src="img/TANKTOPS/tank_1.jpeg"><h1>Cotton Tank</h1></a>
-            <a href="/form"><img src="img/TANKTOPS/tank_2.jpeg"><h1>Endeavor Performance Tank</h1></a>
-            <a href="/form"><img src="img/TANKTOPS/tank_3.jpeg"><h1>Joggers</h1></a>
-        </div>
-        <br><br><br><br>
-        <div class="products">
-            <a href="/form"><img src="img/TANKTOPS/tank_4.jpeg"><h1>Tri-Blend Racerback Tank</h1></a>
-            <a href="/form"><img src="img/TANKTOPS/tank_5.jpeg"><h1>Tie-Dye Racerback Tank</h1></a>
-            <a href="/form"><img src="img/TANKTOPS/tank_6.jpeg"><h1>Sport Performance Tank</h1></a>
-         </div>
-         <br><br><br><br>
-         <div class="products">
-            <a href="/form"><img src="img/TANKTOPS/tank_7.jpeg"><h1>Racerback Crop Tank Top</h1></a>
-            <a href="/form"><img src="img/TANKTOPS/tank_8.jpeg"><h1>Performance Tank</h1></a>
-            <a href="/form"><img src="img/TANKTOPS/tank_9.jpeg"><h1>Garment Dyed Tank</h1></a>
-         </div>
-         <br><br><br><br>
+      <img src="{{this.image}}" alt="{{this.name}}">
+      <h1>{{this.name}}</h1>
+      <p>Price: ${{this.price}}</p>
+      <input type="number" id="quantity-{{this._id}}" value="100" min="100">
+      <button onclick="addToCart('{{this._id}}')">Add to Cart</button>
     </div>
+  {{/each}}
+</div>
+<script>
+  async function addToCart(productId) {
+      const quantity = document.getElementById(`quantity-${productId}`).value;
+      const response = await fetch('/cart/add', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productId, quantity })
+      });
+
+      const data = await response.json();
+      alert(data.message);
+  }
+</script>
 </body>
 </html>

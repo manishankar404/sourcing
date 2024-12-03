@@ -117,31 +117,31 @@
     });
 </script>
 <div class="spacer"></div>
-    
-    <br><br><br>
+
+    <h1 class="headingPDT">TOP CUSTOM GLOVES</h1> 
+   <div class="products">
+  {{#each products}}
     <div>
-        <h1 class="headingPDT">
-            TOP CUSTOM GLOVES
-        </h1>   
-        <br><br><br><br><br><br>
-        <div class="products">
-                <a href="/form"><img src="img/GLOVES/gloves_1.webp"><h1>Fingerless Knit Work Gloves</h1></a>
-                <a href="/form"><img src="img/GLOVES/gloves_2.webp"><h1>Fleece Touchscreen Gloves</h1></a>
-                <a href="/form"><img src="img/GLOVES/gloves_3.webp"><h1>Heathered Knit Gloves</h1></a>
-        </div>
-        <br><br><br><br>
-        <div class="products">
-            <a href="/form"><img src="img/GLOVES/gloves_4.webp"><h1>Imprinted Ragg Wool Gloves</h1></a>
-            <a href="/form"><img src="img/GLOVES/gloves_5.webp"><h1>Leather Gloves</h1></a>
-            <a href="/form"><img src="img/GLOVES/gloves_6.webp"><h1>Lined Dress Gloves</h1></a>
-         </div>
-         <br><br><br><br>
-         <div class="products">
-            <a href="/form"><img src="img/GLOVES/gloves_7.webp"><h1>TechSmart Gloves</h1></a>
-            <a href="/form"><img src="img/GLOVES/gloves_8.webp"><h1>Waterproof Winter Lined <br> Suede Cowhide Gloves</h1></a>
-            <a href="/form"><img src="img/GLOVES/gloves_9.webp"><h1>Winter Lined Fleece Gloves</h1></a>
-         </div>
-         <br><br><br><br>
+      <img src="{{this.image}}" alt="{{this.name}}">
+      <h1>{{this.name}}</h1>
+      <p>Price: ${{this.price}}</p>
+      <input type="number" id="quantity-{{this._id}}" value="100" min="100">
+      <button onclick="addToCart('{{this._id}}')">Add to Cart</button>
     </div>
+  {{/each}}
+</div>
+<script>
+  async function addToCart(productId) {
+      const quantity = document.getElementById(`quantity-${productId}`).value;
+      const response = await fetch('/cart/add', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productId, quantity })
+      });
+
+      const data = await response.json();
+      alert(data.message);
+  }
+</script>
 </body>
 </html>
