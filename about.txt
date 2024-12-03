@@ -16,7 +16,7 @@ git checkout -b NEW_BRANCH_NAME
 
 
 //git init 
-//git remote add origin <git website>
+//git remote add origin https://github.com/manishankar404/sourcing
 
 git add .
 git commit -m "Commit message"
