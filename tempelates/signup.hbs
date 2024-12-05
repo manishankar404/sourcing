@@ -64,7 +64,7 @@
                 </ul>
             </li>
             <li><a class="navlnk" href="/contact">Contact</a></li>
-            <li><a class="navlnk start-sourcing-btn" href="/form">Start Sourcing</a></li>
+            <li><a class="navlnk start-sourcing-btn" href="/order">Order Now</a></li>
         </ul>
         <!-- Time -->
         <p id="demo" class="time"></p>
@@ -108,16 +108,41 @@
 </script>
 <div class="modal-content">
     <h2>Sign Up</h2>
-    <form action="/signup" method="post">
+    <form id="signup-form" action="/signup" method="post">
         <input type="email" id="signup-email" name="email" placeholder="Email*" required>
         <input type="password" id="signup-password" name="password" placeholder="Password*" required>
+        <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm Password*" required>
         <input type="text" id="pet-name" name="petName" placeholder="What is your favorite pet's name?*" required>
         <input type="text" id="full-name" name="fullName" placeholder="Full Name*" required>
         <input type="text" id="company-name" name="companyName" placeholder="Company Name (Optional)">
         <input type="url" id="website" name="website" placeholder="Website URL (Optional)">
         <input type="tel" id="phone" name="phone" placeholder="Phone Number (Optional)">
+        <p id="password-error" style="color: red; display: none;">Passwords do not match.</p>
         <button type="submit" class="btn">Sign Up</button>
     </form>
 </div>
+<script>
+    const signupForm = document.getElementById('signup-form');
+    const passwordInput = document.getElementById('signup-password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+    const errorText = document.getElementById('password-error');
+
+    // Validate passwords on form submission
+    signupForm.addEventListener('submit', (e) => {
+        if (passwordInput.value !== confirmPasswordInput.value) {
+            e.preventDefault(); // Prevent form submission
+            errorText.style.display = 'block'; // Show error message
+        } else {
+            errorText.style.display = 'none'; // Hide error message
+        }
+    });
+
+    // Optionally, validate in real-time as user types
+    confirmPasswordInput.addEventListener('input', () => {
+        if (passwordInput.value === confirmPasswordInput.value) {
+            errorText.style.display = 'none'; // Hide error message
+        }
+    });
+</script>
 </body>
 </html>

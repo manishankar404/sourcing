@@ -16,32 +16,6 @@ const LoginSchema = new mongoose.Schema({
     companyName: { type: String }, // New field for company name
     website: { type: String }, // New field for website
     phone: { type: String },}); // New field for phone
-const FormSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    phone:{
-        type:String
-    },
-    companyName:{
-        type:String
-    },
-    website:{
-        type:String
-    },
-    serviceIntersted:[{
-        type:String
-    }],
-    message:{
-        type:String,
-        required:true
-    }
-});
 
 const tempPasswordResetSchema = new mongoose.Schema({
     email: {
@@ -78,7 +52,6 @@ const adminCollection = new mongoose.model("AdminCollection", AdminLoginSchema);
 const Order = new mongoose.model("Order", OrderSchema);
 const tempPasswordReset = new mongoose.model("TempPasswordReset", tempPasswordResetSchema);
 const collection = new mongoose.model("Collection1", LoginSchema);
-const formcollection = new mongoose.model("FormCollection1", FormSchema);
 const Product =new mongoose.model('Product', ProductSchema);
-module.exports = { collection, formcollection, tempPasswordReset, Product,Order,adminCollection };
+module.exports = { collection, tempPasswordReset, Product,Order,adminCollection };
 

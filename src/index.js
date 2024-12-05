@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const hbs = require("hbs");
-const {collection,formcollection,tempPasswordReset,Product,Order,adminCollection} = require("./mongodb");
+const {collection,tempPasswordReset,Product,Order,adminCollection} = require("./mongodb");
 const session = require("express-session");
 const multer = require('multer');
 const templatePath = path.join(__dirname, "../tempelates");
@@ -13,7 +13,7 @@ app.use(session({
     secret: "project_sourcing", // Replace with a secure key
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 100000 } // Adjust session duration as needed
+    cookie: { maxAge: 1000000 } // Adjust session duration as needed
 }));
 app.use((req, res, next) => {
     res.locals.isLoggedIn = req.session.isLoggedIn || false; // Default to false if not logged in
@@ -148,8 +148,8 @@ app.get("/gloves", async (req, res) => {
         const products = await Product.find({ category: "Gloves" }); // Fetch only gloves
         res.render("gloves", { products });
     } catch (err) {
-        console.error("Error fetching jackets:", err);
-        res.status(500).send("Error fetching jackets: " + err);
+        console.error("Error fetching gloves:", err);
+        res.status(500).send("Error fetching gloves: " + err);
     }
 });
 // Individual service pages
@@ -164,16 +164,19 @@ app.get("/Selling", (req, res) => res.render("selling"));
 app.get("/About_Sourcing", (req, res) => res.render("about_sourcing"));
 app.get("/Pricing", (req, res) => res.render("pricing"));
 app.get("/submissions", async (req, res) => {
+    if (!req.session.isAdminLoggedIn) {
+        return res.redirect("/admin/login"); // Redirect immediately if not logged in
+    }
+
     try {
-        // Using exec() to directly execute the query
-        const submissions = await formcollection.find({}).exec();
-        // console.log("Submissions fetched:", submissions); // Log the submissions     
-        res.render("submissions", { submissions });
+        const submissions = await collection.find({}).exec(); // Fetch all submissions
+        res.render("submissions", { submissions }); // Pass data to the view
     } catch (err) {
         console.error("Error fetching submissions:", err);
-        res.status(500).send("Error retrieving submissions");
+        res.status(500).send("Error retrieving submissions"); // Send an error response
     }
 });
+
 // Signup logic
 app.post("/signup", async (req, res) => {
     const { email, password, petName, fullName, companyName, website, phone } = req.body;
@@ -198,7 +201,7 @@ app.post("/login", async (req, res) => {
         if (user && user.password === req.body.password) {
             req.session.isLoggedIn = true;
             req.session.email = user.email; // Store email in session
-            res.redirect("/profile");
+            return res.redirect("/profile");
         } else {
             res.send("Invalid email or password");
         }
@@ -231,31 +234,13 @@ app.post("/forgot_password", async (req, res) => {
 // Logout logic
 app.get("/logout", (req, res) => {
     req.session.isLoggedIn = false; // Clear session variable
-    res.redirect("/"); // Redirect to the home page
-});
-// form submission logic
-app.post("/form", async (req, res) => {
-    const data = {
-        name: req.body.name,
-        email: req.body.email,
-        phone: req.body.phone,
-        companyName: req.body.companyName,
-        website: req.body.website,
-        serviceIntersted: req.body.service, // service is an array
-        message: req.body.message
-    };
-    try {
-        // Insert the form data into the database
-        await formcollection.insertMany([data]);
-        // Redirect to the confirmation page after successful submission
-        res.redirect('/confirmation');
-    } catch (err) {
-        // Handle any errors, e.g., database issues
-        res.status(500).send("Error in form submission. Please try again.");
-    }
+    res.redirect("/login"); // Redirect to the login page
 });
 // Add to cart
 app.post('/cart/add', async (req, res) => {
+    if (!req.session.isLoggedIn) {
+        return res.status(401).json({ message: 'Please log in to add items to your cart.' });
+    }
     try {
         const { productId, quantity } = req.body;
         // Fetch product details using `await` in an async function

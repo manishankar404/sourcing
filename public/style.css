@@ -411,7 +411,11 @@ textarea {
     border-radius: 10px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
-
+#password-error {
+    font-size: 14px;
+    color: red;
+    margin-top: 5px;
+}
 .auth-container h2,
 .form-container h2,
 .modal-content h2 {

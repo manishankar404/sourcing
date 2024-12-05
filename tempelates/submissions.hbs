@@ -65,7 +65,11 @@
                 </ul>
             </li>
             <li><a class="navlnk" href="/contact">Contact</a></li>
-            <li><a class="navlnk start-sourcing-btn" href="/form">Start Sourcing</a></li>
+            <li><a class="navlnk start-sourcing-btn" href="/order">Order Now</a></li>
+            <li><a class="navlnk" href="/admin/orders">View Orders</a></li>
+            <li><a class="navlnk" href="/submissions">View User Submissions</a></li>
+            <li><a class="navlnk" href="/admin/add-product">Add Product</a></li>
+            <li><a class="btn logout-btn" href="/admin/logout">Logout</a></li>
         </ul>
 
         <!-- Time -->
@@ -113,20 +117,16 @@
                         <th>Phone</th>
                         <th>Company</th>
                         <th>Website</th>
-                        <th>Service Interested</th>
-                        <th>Message</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each submissions}}
                         <tr>
-                            <td>{{this.name}}</td>
+                            <td>{{this.fullName}}</td>
                             <td>{{this.email}}</td>
                             <td>{{this.phone}}</td>
                             <td>{{this.companyName}}</td>
                             <td>{{this.website}}</td>
-                            <td>{{#each this.serviceIntersted}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</td>
-                            <td>{{this.message}}</td>
                         </tr>
                     {{/each}}
                 </tbody>

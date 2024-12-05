@@ -68,7 +68,7 @@
                 </ul>
             </li>
             <li><a class="navlnk" href="/contact">Contact</a></li>
-            <li><a class="navlnk start-sourcing-btn" href="/form">Start Sourcing</a></li>
+            <li><a class="navlnk start-sourcing-btn" href="/order">Order Now</a></li>
         </ul>
 
         <!-- Time -->
@@ -165,7 +165,7 @@
     <div>
       <img src="{{this.image}}" alt="{{this.name}}">
       <h1>{{this.name}}</h1>
-      <p>Price: ${{this.price}}</p>
+      <p>Price: ₹{{this.price}}</p> <!-- Added ₹ symbol -->
       <input type="number" id="quantity-{{this._id}}" value="100" min="100">
       <button onclick="addToCart('{{this._id}}')">Add to Cart</button>
     </div>
@@ -173,16 +173,21 @@
 </div>
 <script>
   async function addToCart(productId) {
-      const quantity = document.getElementById(`quantity-${productId}`).value;
-      const response = await fetch('/cart/add', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ productId, quantity })
-      });
+    const quantity = document.getElementById(`quantity-${productId}`).value;
+    const response = await fetch('/cart/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId, quantity })
+    });
 
-      const data = await response.json();
-      alert(data.message);
-  }
+    const data = await response.json();
+    alert(data.message);
+}
+
+function requestLogin() {
+    alert('You need to log in to add items to your cart.');
+    window.location.href = '/login'; // Redirect to the login page
+}
 </script><br><br>
 
         <section class="facebook-group">
