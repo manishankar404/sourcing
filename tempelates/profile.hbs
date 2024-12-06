@@ -120,5 +120,36 @@
         </div>
     </div>
 </main>
+<h2>Your Orders</h2>
+{{#if orders.length}}
+<table>
+    <thead>
+        <tr>
+            <th>Order Date</th>
+            <th>Products</th>
+            <th>Total Price</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each orders}}
+        <tr>
+            <td>{{this.date}}</td>
+            <td>
+                <ul>
+                    {{#each this.items}}
+                    <li>{{this.name}} (x{{this.quantity}})</li>
+                    {{/each}}
+                </ul>
+            </td>
+            <td>{{this.total}}</td>
+            <td>{{this.status}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<p>You have not placed any orders yet.</p>
+{{/if}}
 </body>
 </html>

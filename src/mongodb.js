@@ -43,6 +43,8 @@ const OrderSchema = new mongoose.Schema({
     ],
     total: { type: Number, required: true },
     date: { type: Date, default: Date.now },
+    status: { type: String, default: 'Pending', enum: ['Pending', 'Packed', 'Shipped', 'Out for Delivery', 'Delivered'] },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'Collection1', required: true }
 });
 const AdminLoginSchema = new mongoose.Schema({
     username: { type: String, required: true },

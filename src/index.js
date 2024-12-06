@@ -9,6 +9,7 @@ const templatePath = path.join(__dirname, "../tempelates");
 // Serve static files from the "public" directory
 app.use(express.static('public'));
 hbs.registerHelper('multiply', (a, b) => a * b);
+hbs.registerHelper("eq", (a, b) => a === b);
 app.use(session({
     secret: "project_sourcing", // Replace with a secure key
     resave: false,
@@ -212,17 +213,20 @@ app.post("/login", async (req, res) => {
 // Forget Password
 app.get("/forgot_password", (req, res) => res.render("forgot_password"));
 // Forget Password Route
+// Forget Password Route
 app.post("/forgot_password", async (req, res) => {
-    const { email, petName, newPassword } = req.body;
+    const { email, petName, newPassword, confirmPassword } = req.body;
+    // Validate that passwords match
+    if (newPassword !== confirmPassword) {
+        return res.status(400).send("Passwords do not match. Please try again.");
+    }
     try {
         // Check if the user exists with the provided email and pet name
         const user = await collection.findOne({ email: email, petName: petName });
         if (!user) {
             return res.send("Incorrect details. Please try again.");
         }
-        // Store email and pet name in the temporary collection
-        await tempPasswordReset.create({ email, petName });
-        // Update the password directly
+        // Update the password
         user.password = newPassword;
         await user.save();
         res.send("Password successfully reset. You can now log in.");
@@ -296,11 +300,15 @@ app.get('/order', (req, res) => {
 // Place an order
 app.post('/order', async (req, res) => {
     try {
+        if (!req.session.isLoggedIn) {
+            return res.status(401).json({ message: 'Please log in to place an order.' });
+        }
         const cart = req.session.cart || [];
         if (cart.length === 0) {
             return res.status(400).json({ message: 'Cart is empty. Cannot place order.' });
         }
-        // Create the order object
+        const user = await collection.findOne({ email: req.session.email });
+
         const order = {
             items: cart.map(item => ({
                 productId: item.productId,
@@ -310,13 +318,12 @@ app.post('/order', async (req, res) => {
             })),
             total: cart.reduce((sum, item) => sum + item.quantity * item.price, 0),
             date: new Date(),
+            user: user._id
         };
-        // Save the order in the database
+
         const newOrder = new Order(order);
         await newOrder.save();
-        // Clear the cart
         req.session.cart = [];
-        // Render order confirmation page
         res.render('order-confirmation', { order: newOrder });
     } catch (error) {
         res.status(500).json({ message: 'Error placing order', error: error.message });
@@ -324,10 +331,21 @@ app.post('/order', async (req, res) => {
 });
 app.get('/admin/orders', async (req, res) => {
     try {
-        const orders = await Order.find().populate('items.productId'); // Populate product details
-        res.render('admin-orders', { orders }); // Create `admin-orders.hbs` to display orders
+        const orders = await Order.find()
+            .populate('user', 'fullName email phone') // Fetch user details
+            .populate('items.productId', 'name'); // Fetch product details
+        res.render('admin-orders', { orders });
     } catch (err) {
         res.status(500).send("Error fetching orders: " + err.message);
+    }
+});
+app.post('/admin/orders/update-status', async (req, res) => {
+    const { orderId, status } = req.body;
+    try {
+        await Order.findByIdAndUpdate(orderId, { status });
+        res.redirect('/admin/orders');
+    } catch (err) {
+        res.status(500).send("Error updating order status: " + err.message);
     }
 });
 // Set up storage destination and filename for uploaded images
@@ -403,12 +421,19 @@ app.get("/profile", async (req, res) => {
         if (!user) {
             return res.status(404).send("User not found");
         }
+
+        // Fetch orders for the logged-in user
+        const orders = await Order.find({ user: user._id })
+            .populate('items.productId', 'name') // Populate product details
+            .exec();
+
         res.render("profile", {
             fullName: user.fullName,
             email: user.email,
             companyName: user.companyName,
             website: user.website,
             phone: user.phone,
+            orders // Pass orders to the view
         });
     } catch (err) {
         res.status(500).send("Error loading profile: " + err.message);
