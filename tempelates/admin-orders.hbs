@@ -113,6 +113,7 @@
         <tr>
             <th>Order ID</th>
             <th>Items</th>
+            <th>Logo Status</th>
             <th>Total</th>
             <th>Date</th>
             <th>User</th>
@@ -126,8 +127,20 @@
             <td>{{this._id}}</td>
             <td>
                 {{#each this.items}}
-                {{this.name}} (x{{this.quantity}})
-                <br />
+                <div>
+                    {{this.name}} (x{{this.quantity}})
+                </div>
+                {{/each}}
+            </td>
+            <td>
+                {{#each this.items}}
+                <div>
+                    {{#if this.logo}}
+                        Logo uploaded: {{this.logo}}
+                    {{else}}
+                        No logo uploaded
+                    {{/if}}
+                </div>
                 {{/each}}
             </td>
             <td>{{this.total}}</td>

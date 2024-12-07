@@ -297,38 +297,6 @@ app.get('/order', (req, res) => {
     const totalPrice = cart.reduce((sum, item) => sum + item.quantity * item.price, 0);
     res.render('order', { cart, totalPrice });
 });
-// Place an order
-app.post('/order', async (req, res) => {
-    try {
-        if (!req.session.isLoggedIn) {
-            return res.status(401).json({ message: 'Please log in to place an order.' });
-        }
-        const cart = req.session.cart || [];
-        if (cart.length === 0) {
-            return res.status(400).json({ message: 'Cart is empty. Cannot place order.' });
-        }
-        const user = await collection.findOne({ email: req.session.email });
-
-        const order = {
-            items: cart.map(item => ({
-                productId: item.productId,
-                name: item.name,
-                price: item.price,
-                quantity: item.quantity,
-            })),
-            total: cart.reduce((sum, item) => sum + item.quantity * item.price, 0),
-            date: new Date(),
-            user: user._id
-        };
-
-        const newOrder = new Order(order);
-        await newOrder.save();
-        req.session.cart = [];
-        res.render('order-confirmation', { order: newOrder });
-    } catch (error) {
-        res.status(500).json({ message: 'Error placing order', error: error.message });
-    }
-});
 app.get('/admin/orders', async (req, res) => {
     try {
         const orders = await Order.find()
@@ -356,9 +324,54 @@ const storage = multer.diskStorage({
     filename: (req, file, cb) => {
       cb(null, Date.now() + path.extname(file.originalname)); // Unique filename based on current timestamp
     },
-  });  
+  });
 // Create multer instance with storage configuration
 const upload = multer({ storage: storage });
+// Set up storage destination and filename for logo uploads
+const storage2 = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/uploads/logos'); // Directory for logo uploads
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+// Create multer instance for logo uploads, handling an array of files
+const upload2 = multer({ storage: storage2 });
+app.post('/order', upload2.array('logos'), async (req, res) => {
+    try {
+        if (!req.session.isLoggedIn) {
+            return res.status(401).json({ message: 'Please log in to place an order.' });
+        }
+        const cart = req.session.cart || [];
+        if (cart.length === 0) {
+            return res.status(400).json({ message: 'Cart is empty. Cannot place order.' });
+        }
+        const user = await collection.findOne({ email: req.session.email });
+        // Map logos to the cart items
+        const logos = req.files; // Multer gives you access to uploaded files through req.files
+        const items = cart.map((item, index) => ({
+            productId: item.productId,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            logo: logos[index] ? `/uploads/logos/${logos[index].filename}` : null // Store logo path if uploaded
+        }));
+        const order = {
+            items,
+            total: cart.reduce((sum, item) => sum + item.quantity * item.price, 0),
+            date: new Date(),
+            user: user._id,
+            status: 'Pending' // Ensure that status is set when the order is created
+        };
+        const newOrder = new Order(order);
+        await newOrder.save();
+        req.session.cart = []; // Clear the cart after order is placed
+        res.render('order-confirmation', { order: newOrder }); // Render the order confirmation page
+    } catch (error) {
+        res.status(500).json({ message: 'Error placing order', error: error.message });
+    }
+});
 // Route to render admin product form
 app.get('/admin/add-product', (req, res) => {
     res.render('admin-add-product'); // Create this template to render the form

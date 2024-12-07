@@ -70,6 +70,19 @@
 
         <!-- Time -->
         <p id="demo" class="time"></p>
+        <!-- Profile and Logout Buttons -->
+        <nav class="nav">
+            {{#unless isLoggedIn}}
+                <a href="/login" class="btn login-btn">Login</a>
+                <a href="/signup" class="btn signup-btn">Sign Up</a>
+            {{/unless}}
+            {{#if isLoggedIn}}
+                <div class="profile-logout-container">
+                    <a href="/profile" class="btn profile-btn">Profile</a>
+                    <a href="/logout" class="btn logout-btn">Logout</a>
+                </div>
+            {{/if}}
+        </nav>
     </div>
 </header>
 <script>

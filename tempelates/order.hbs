@@ -121,31 +121,34 @@
          <h1>Order Summary</h1>
     
     {{#if cart.length}}
-        <table>
-            <thead>
+        <form action="/order" method="POST" enctype="multipart/form-data">
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Upload Logo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each cart}}
                 <tr>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Total</th>
+                    <td>{{name}}</td>
+                    <td>{{quantity}}</td>
+                    <td>{{price}}</td>
+                    <td>{{multiply price quantity}}</td>
+                    <td>
+                        <input type="file" name="logos" accept="image/*" />
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                {{#each cart}}
-                    <tr>
-                        <td>{{name}}</td>
-                        <td>{{quantity}}</td>
-                        <td>{{price}}</td>
-                        <td>{{multiply price quantity}}</td>
-                    </tr>
-                {{/each}}
-            </tbody>
-        </table>
-        <h2>Total Price: {{totalPrice}}</h2>
-
-        <form action="/order" method="POST">
-            <button type="submit">Place Order</button>
-        </form>
+            {{/each}}
+        </tbody>
+    </table>
+    <h2>Total Price: {{totalPrice}}</h2>
+    <button type="submit">Place Order</button>
+</form>
     {{else}}
         <p>Your cart is empty.</p>
     {{/if}}

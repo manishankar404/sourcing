@@ -117,11 +117,20 @@
 <h1>Order Confirmed</h1>
 <p>Thank you for your purchase!</p>
 <p>Order Summary:</p>
-<ul>
+<ul class="order-summary-list">
   {{#each order.items}}
-    <li>{{this.quantity}}x {{this.name}} - ${{multiply this.quantity this.price}}</li>
+    <li>
+      <span class="item-details">{{this.quantity}}x {{this.name}} - ${{multiply this.quantity this.price}}</span>
+      <span class="item-logo">
+        {{#if this.logo}}
+          <img src="{{this.logo}}" alt="Uploaded Logo" class="uploaded-logo" />
+        {{else}}
+          <span class="no-logo">No logo uploaded</span>
+        {{/if}}
+      </span>
+    </li>
   {{/each}}
 </ul>
-<p>Total: ${{order.total}}</p>
+<p class="order-total">Total: ${{order.total}}</p>
 </body>
 </html>
