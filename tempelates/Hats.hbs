@@ -12,83 +12,86 @@
 <body class="product" id="BGhats">
 
 <header class="header">
-    <div class="container">
-        <!-- Navigation Menu -->
-        <div class="logo" style="display: flex;">
-            <a href="/"><img src="/img/favicon-32x32.png" ></a>
-            <a class="navlnk" href="/"> A-Z Clothes Sourcing </a>
-        </div>
-
-        <!-- Hamburger Icon for Mobile -->
-        <div class="hamburger" id="hamburger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-
-        <ul class="nav-menu" id="nav-menu">
-            <li class="dropdown">
-                <a href="/products" class="navlnk">Products</a>
-                <ul class="dropdown-content">
-                   <li><a href="/Hoodies">Custom Hoodies</a></li>
-                    <li><a href="/Jackets">Custom Jackets</a></li>
-                    <li><a href="/sweater">Custom Sweaters</a></li>
-                    <li><a href="/Polo_Shirts">Custom Polo Shirts</a></li>
-                    <li><a href="/T_shirts">Custom T-shirts</a></li>
-                    <li><a href="/Tank_Tops">Custom Tank Tops</a></li>                 
-                    <li><a href="/Pants">Custom Pants</a></li>
-                    <li><a href="/Shorts">Custom Shorts</a></li>
-                    <li><a href="/Socks">Custom Socks</a></li>
-                    <li><a href="/Hats">Custom Hats</a></li>
-                    <li><a href="/Scarf">Custom Scarfs</a></li>
-                    <li><a href="/Gloves">Custom Gloves</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="/services" class="navlnk">Services</a>
-                <ul class="dropdown-content">
-                    <li><a href="/Dropshipping">Dropshipping</a></li>
-                    <li><a href="/Private_Label_Service">Private Label Service</a></li>
-                    <li><a href="/Packing">Custom Packing</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="/resources" class="navlnk">Resources</a>
-                <ul class="dropdown-content">
-                    <li><a href="/Sourcing_Guide">Sourcing Guide</a></li>
-                    <li><a href="/Shipping">Shipping</a></li>
-                    <li><a href="/Selling">Selling</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="/about" class="navlnk">About</a>
-                <ul class="dropdown-content">
-                    <li><a href="/About_Sourcing">About Sourcing</a></li>
-                    <li><a href="/Pricing">Pricing</a></li>
-                </ul>
-            </li>
-            <li><a class="navlnk" href="/contact">Contact</a></li>
-            <li><a class="navlnk start-sourcing-btn" href="/order">Order Now</a></li>
-        </ul>
-
-        <!-- Time -->
-        <p id="demo" class="time"></p>
-
-        <!-- Login and Signup Buttons -->
-        <nav class="nav">
-            {{#unless isLoggedIn}}
-                <a href="/login" class="btn login-btn">Login</a>
-                <a href="/signup" class="btn signup-btn">Sign Up</a>
-            {{/unless}}
-            {{#if isLoggedIn}}
-                <div class="profile-logout-container">
-                    <a href="/profile" class="btn profile-btn">Profile</a>
-                    <a href="/logout" class="btn logout-btn">Logout</a>
+            <div class="container">
+                <!-- Navigation Menu -->
+                <div class="logo" style="display: flex">
+                    <a href="/"><img src="/img/favicon-32x32.png" /></a>
+                    <a class="navlnk1" href="/"> A-Z Clothes Sourcing </a>
                 </div>
-            {{/if}}
-        </nav>
-    </div>
-</header>
+                <!-- Hamburger Icon for Mobile -->
+                <div class="hamburger" id="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <nav>
+                    <div class="nav-item">
+                        <a href="#" class="navlnk">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Hoodies">Custom Hoodies</a></li>
+                            <li><a href="/Jackets">Custom Jackets</a></li>
+                            <li><a href="/sweater">Custom Sweaters</a></li>
+                            <li><a href="/Polo_Shirts">Custom Polo Shirts</a></li>
+                            <li><a href="/T_shirts">Custom T-shirts</a></li>
+                            <li><a href="/Tank_Tops">Custom Tank Tops</a></li>
+                            <li><a href="/Pants">Custom Pants</a></li>
+                            <li><a href="/Shorts">Custom Shorts</a></li>
+                            <li><a href="/Socks">Custom Socks</a></li>
+                            <li><a href="/Hats">Custom Hats</a></li>
+                            <li><a href="/Scarf">Custom Scarfs</a></li>
+                            <li><a href="/Gloves">Custom Gloves</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="navlnk">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Dropshipping">Dropshipping</a></li>
+                            <li>
+                                <a href="/Private_Label_Service">Private Label Service</a>
+                            </li>
+                            <li><a href="/Packing">Custom Packing</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="navlnk">Resources</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Sourcing_Guide">Sourcing Guide</a></li>
+                            <li><a href="/Shipping">Shipping</a></li>
+                            <li><a href="/Selling">Selling</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="navlnk">About</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/About_Sourcing">About Sourcing</a></li>
+                            <li><a href="/Pricing">Pricing</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#footer" class="navlnk">Contact</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/order" class="navlnk start-sourcing-btn">Order Now</a>
+                    </div>
+                    <span></span>
+                </nav>
+
+                <!-- Time -->
+                <p id="demo" class="time"></p>
+                <!-- Profile and Logout Buttons -->
+                <nav class="nav">
+                    {{#unless isLoggedIn}}
+                    <a href="/login" class="btn login-btn">Login</a>
+                    <a href="/signup" class="btn signup-btn">Sign Up</a>
+                    {{/unless}} {{#if isLoggedIn}}
+                    <div class="profile-logout-container">
+                        <a href="/profile" class="btn profile-btn">Profile</a>
+                        <a href="/logout" class="btn logout-btn">Logout</a>
+                    </div>
+                    {{/if}}
+                </nav>
+            </div>
+        </header>
 
 <script>
     // Function to display the current time

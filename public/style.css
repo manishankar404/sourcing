@@ -35,75 +35,167 @@ body {
     flex-wrap: wrap;
 }
 /* Navigation Menu */
-.nav-menu {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("img/PROJECT/img1.webp");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: #333;
+}
+.spacers {
+    height: 600px;
+}
+
+/* Header */
+.header {
+    background-color: #fe9b39;
+    color: white;
+    padding: 1rem 2rem;
+    position: sticky; /* Makes the header stick to the top */
+    top: 0; /* Ensures it stays at the top */
+    z-index: 1000; /* Keeps it above other elements */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for better visibility */
+}
+
+/* Container Flex Layout */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo{
     display: flex;
     align-items: center;
-    list-style: none;
-    gap: 1rem;
+    justify-content: center;
+}  
+
+
+
+/* Navigation Menu */
+nav {
+    position: relative;
+    height: 50px;
+    background: #fe9b39;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 70px;
+    
 }
-.nav-menu li {
+
+.navlnk1{
+    color: black;
+    text-decoration:none;
+    font-weight:bold;
+    padding: 0.5rem 0;
+
+}
+
+.navlnk{
+    color: black;
+    font-weight: bold
+}
+
+nav a {
+   
+    position: relative;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    padding: 0 23px;
+    z-index: 1;
+}
+
+
+nav span {
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: 10px;
+    width: 95px;
+    height: 100%;
+    background: linear-gradient(45deg, #194b45, #33fff3);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+
+
+/* Animation for Hover */
+.nav-item:nth-child(1):hover ~ span {
+    left: 10px;
+    visibility: visible;
+}
+.nav-item:nth-child(2):hover ~ span {
+    left: 125px;
+    visibility: visible;
+}
+.nav-item:nth-child(3):hover ~ span {
+    left: 245px;
+    visibility: visible;
+}
+.nav-item:nth-child(4):hover ~ span {
+    left: 355px;
+    visibility: visible;
+}
+.nav-item:nth-child(5):hover ~ span {
+    left: 452px;
+    visibility: visible;
+}
+
+/* Dropdown Menu */
+.nav-item {
     position: relative;
 }
-.navlnk {
-    color: #000000;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0.5rem 0;
-}
-.navlnk:hover {
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-}
-/* Dropdown Menu */
-.dropdown-content {
-    display: none;
+
+.dropdown-menu {
     position: absolute;
-    top: 100%;
+    top:100%;
     left: 0;
-    background-color: white;
-    color: black;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    min-width: 200px;
-    z-index: 1000;
-    border-radius: 4px;
+    background: white;
     list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    display: none;
+    width: max-content;
+    z-index: 10;
 }
-a {
-    text-decoration: none;
+
+.dropdown-menu li {
+    padding: 0;
+    margin: 0;
 }
-.dropdown-content li a {
-    padding: 0.8rem 1.5rem;
+
+.dropdown-menu li a {
     display: block;
+    padding: 10px 15px;
     color: black;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    font-size: 0.9em;
+    font-weight: 400;
 }
-.dropdown-content li a:hover {
-    background-color: blanchedalmond;
+
+.dropdown-menu li a:hover {
+    background: blanchedalmond;
 }
-.dropdown:hover .dropdown-content {
+
+/* Show Dropdown on Hover */
+.nav-item:hover .dropdown-menu {
     display: block;
-}
-/* Time Styling */
-.time {
-    color: rgb(0, 0, 0);
-    font-size: 1rem;
-    white-space: nowrap;
-    margin: 0 2rem;
-}
-/* Buttons */
-.nav .btn {
-    color: white;
-    background-color: #007bff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1rem;
-    margin-left: 0.5rem;
-}
-.nav .btn:hover {
-    background-color: #0056b3;
 }
 .start-sourcing-btn {
     background-color: #ffffff;
@@ -113,6 +205,7 @@ a {
     font-weight: bold;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    
 }
 .start-sourcing-btn:hover {
     background-color: #FF9800;
@@ -137,6 +230,25 @@ a {
 }
 .profile-btn:hover {
     background-color: #45a049; /* Darker green on hover */
+}
+.time{
+    margin-left: 50px;
+    color: black;
+}
+
+.nav .btn{
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    border-radius: 5px;
+}
+
+.nav .btn:hover{
+    background-color: #0056b3;
 }
 /* Logout Button Styling */
 .logout-btn {
