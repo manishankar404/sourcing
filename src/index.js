@@ -41,7 +41,6 @@ app.get("/products", (req, res) => res.render("products"));
 app.get("/services", (req, res) => res.render("services"));
 app.get("/resources", (req, res) => res.render("resources"));
 app.get("/about", (req, res) => res.render("about"));
-app.get("/contact", (req, res) => res.render("contact"));
 app.get("/form", (req, res) => res.render("form"));
 app.get("/confirmation", (req, res) => res.render("confirmation"));
 // Individual product pages

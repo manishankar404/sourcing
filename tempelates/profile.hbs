@@ -62,7 +62,7 @@
                     <li><a href="/Pricing">Pricing</a></li>
                 </ul>
             </li>
-            <li><a class="navlnk" href="/contact">Contact</a></li>
+            <li><a class="navlnk" href="/#footer">Contact</a></li>
             <li><a class="navlnk start-sourcing-btn" href="/order">Order Now</a></li>
         </ul>
         <!-- Time -->
@@ -107,16 +107,27 @@
 </script>
 <main class="profile">
     <div class="profile-container">
+        <div class="profile-header">
+            <h2>{{fullName}}</h2>
+            <p class="email">{{email}}</p>
+        </div>
         <div class="profile-details">
-            <h2>Welcome, {{fullName}}!</h2>
-            <p><strong>Email:</strong> {{email}}</p>
-            <p><strong>Company Name:</strong> {{companyName}}</p>
-            <p><strong>Company Website:</strong> <a href="{{website}}" target="_blank">{{website}}</a></p>
-            <p><strong>Phone:</strong> {{phone}}</p>
+            <div class="detail-item">
+                <strong>Company Name:</strong>
+                <span>{{companyName}}</span>
+            </div>
+            <div class="detail-item">
+                <strong>Company Website:</strong>
+                <span><a href="{{website}}" target="_blank">{{website}}</a></span>
+            </div>
+            <div class="detail-item">
+                <strong>Phone:</strong>
+                <span>{{phone}}</span>
+            </div>
         </div>
         <div class="profile-actions">
-            <a href="/edit-profile" class="btn">Edit Profile</a>
-            <a href="/logout" class="btn">Logout</a>
+            <a href="/edit-profile" class="btn btn-edit">Edit Profile</a>
+            <a href="/logout" class="btn btn-logout">Logout</a>
         </div>
     </div>
 </main>
