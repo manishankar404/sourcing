@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+ <header class="header">
+            <div class="container">
+                <!-- Navigation Menu -->
+                <div class="logo" style="display: flex">
+                    <a href="/"><img src="/img/favicon-32x32.png" /></a>
+                    <a class="navlnk1" href="/"> A-Z Clothes Sourcing </a>
+                </div>
+                <!-- Hamburger Icon for Mobile -->
+                <div class="hamburger" id="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <nav>
+                    <div class="nav-item">
+                        <a href="/products" class="navlnk">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Hoodies">Custom Hoodies</a></li>
+                            <li><a href="/Jackets">Custom Jackets</a></li>
+                            <li><a href="/sweater">Custom Sweaters</a></li>
+                            <li><a href="/Polo_Shirts">Custom Polo Shirts</a></li>
+                            <li><a href="/T_shirts">Custom T-shirts</a></li>
+                            <li><a href="/Tank_Tops">Custom Tank Tops</a></li>
+                            <li><a href="/Pants">Custom Pants</a></li>
+                            <li><a href="/Shorts">Custom Shorts</a></li>
+                            <li><a href="/Socks">Custom Socks</a></li>
+                            <li><a href="/Hats">Custom Hats</a></li>
+                            <li><a href="/Scarf">Custom Scarfs</a></li>
+                            <li><a href="/Gloves">Custom Gloves</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/services" class="navlnk">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Dropshipping">Dropshipping</a></li>
+                            <li>
+                                <a href="/Private_Label_Service">Private Label Service</a>
+                            </li>
+                            <li><a href="/Packing">Custom Packing</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/resources" class="navlnk">Resources</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Sourcing_Guide">Sourcing Guide</a></li>
+                            <li><a href="/Shipping">Shipping</a></li>
+                            <li><a href="/Selling">Selling</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/about" class="navlnk">About</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/About_Sourcing">About Sourcing</a></li>
+                            <li><a href="/Pricing">Pricing</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#footer" class="navlnk">Contact</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/order" class="navlnk start-sourcing-btn">Order Now</a>
+                    </div>
+                    <span></span>
+                </nav>
+
+                <!-- Time -->
+                <p id="demo" class="time"></p>
+                <!-- Profile and Logout Buttons -->
+                <nav class="nav">
+                    {{#unless isLoggedIn}}
+                    <a href="/login" class="btn login-btn">Login</a>
+                    <a href="/signup" class="btn signup-btn">Sign Up</a>
+                    {{/unless}} {{#if isLoggedIn}}
+                    <div class="profile-logout-container">
+                        <a href="/profile" class="btn profile-btn">Profile</a>
+                        <a href="/logout" class="btn logout-btn">Logout</a>
+                    </div>
+                    {{/if}}
+                </nav>
+            </div>
+        </header>
+
+<script>
+    // Function to display the current time
+    function updateTime() {
+        const d = new Date();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit', // Added seconds for a live clock feel
+            hour12: true,
+        };
+        document.getElementById("demo").innerHTML = d.toLocaleTimeString('en-US', options);
+    }
+
+    // Initial call to display time immediately
+    updateTime();
+
+    // Update the time every second
+    setInterval(updateTime, 1000);
+
+    // Toggle the navigation menu on hamburger click
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+
+    hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+    });
+</script>
+<h1>Your Cart</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each cart}}
+    <tr>
+      <td>{{this.name}}</td>
+      <td>${{this.price}}</td>
+      <td>{{this.quantity}}</td>
+      <td>${{multiply this.price this.quantity}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<h2>Total Price: ${{totalPrice}}</h2>
+<form action="/order" method="post">
+  <button type="submit">Place Order</button>
+</form>
+</body>
+</html>

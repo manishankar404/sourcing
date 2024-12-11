@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body class="product" id="BGhood">
+ <header class="header">
+            <div class="container">
+                <!-- Navigation Menu -->
+                <div class="logo" style="display: flex">
+                    <a href="/"><img src="/img/favicon-32x32.png" /></a>
+                    <a class="navlnk1" href="/"> A-Z Clothes Sourcing </a>
+                </div>
+                <!-- Hamburger Icon for Mobile -->
+                <div class="hamburger" id="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <nav>
+                    <div class="nav-item">
+                        <a href="/products" class="navlnk">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Hoodies">Custom Hoodies</a></li>
+                            <li><a href="/Jackets">Custom Jackets</a></li>
+                            <li><a href="/sweater">Custom Sweaters</a></li>
+                            <li><a href="/Polo_Shirts">Custom Polo Shirts</a></li>
+                            <li><a href="/T_shirts">Custom T-shirts</a></li>
+                            <li><a href="/Tank_Tops">Custom Tank Tops</a></li>
+                            <li><a href="/Pants">Custom Pants</a></li>
+                            <li><a href="/Shorts">Custom Shorts</a></li>
+                            <li><a href="/Socks">Custom Socks</a></li>
+                            <li><a href="/Hats">Custom Hats</a></li>
+                            <li><a href="/Scarf">Custom Scarfs</a></li>
+                            <li><a href="/Gloves">Custom Gloves</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/services" class="navlnk">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Dropshipping">Dropshipping</a></li>
+                            <li>
+                                <a href="/Private_Label_Service">Private Label Service</a>
+                            </li>
+                            <li><a href="/Packing">Custom Packing</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/resources" class="navlnk">Resources</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Sourcing_Guide">Sourcing Guide</a></li>
+                            <li><a href="/Shipping">Shipping</a></li>
+                            <li><a href="/Selling">Selling</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/about" class="navlnk">About</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/About_Sourcing">About Sourcing</a></li>
+                            <li><a href="/Pricing">Pricing</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#footer" class="navlnk">Contact</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/order" class="navlnk start-sourcing-btn">Order Now</a>
+                    </div>
+                    <span></span>
+                </nav>
+
+                <!-- Time -->
+                <p id="demo" class="time"></p>
+                <!-- Profile and Logout Buttons -->
+                <nav class="nav">
+                    {{#unless isLoggedIn}}
+                    <a href="/login" class="btn login-btn">Login</a>
+                    <a href="/signup" class="btn signup-btn">Sign Up</a>
+                    {{/unless}} {{#if isLoggedIn}}
+                    <div class="profile-logout-container">
+                        <a href="/profile" class="btn profile-btn">Profile</a>
+                        <a href="/logout" class="btn logout-btn">Logout</a>
+                    </div>
+                    {{/if}}
+                </nav>
+            </div>
+        </header>
+<script>
+    // Function to display the current time
+    function updateTime() {
+        const d = new Date();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit', // Added seconds for a live clock feel
+            hour12: true,
+        };
+        document.getElementById("demo").innerHTML = d.toLocaleTimeString('en-US', options);
+    }
+    // Initial call to display time immediately
+    updateTime();
+    // Update the time every second
+    setInterval(updateTime, 1000);
+    // Toggle the navigation menu on hamburger click
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+    hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+    });
+</script>
+<div class="spacer"></div>
+
+<center><br>
+            <div class="choice">
+                <h1>WHY WE CAN BE YOUR FIRST CHOICE</h1>
+            </div>    
+            <!-- Existing content -->
+            <div class="containersss"><br>
+                <div class="card">
+                    <br>
+                    <img src="img/srcexp.jpg" alt="Sourcing Expert">
+                    <h3>Sourcing Expert</h3>
+                    <p>A-Z Clothes Sourcing is a <span>TOP-NOTCH</span> sourcing company with a good sourcing experience. You save hassles while our professionals do everything about sourcing for you.</p>
+                    <a href="#footer" class="contact-button">Contact Us</a>
+                </div><br><br>
+                <div class="card">
+                    <br>
+                    <img src="img/onsupt.jpg" alt="24/7 Online Support">
+                    <h3>24/7 Online Support</h3>
+                    <p>Our <span>EFFICIENT</span> and <span>FRIENDLY</span> supportive replies to your inquiries and rapidly sends quotes within 24 hours. Get a complete quote at <span>better cost</span>. Use our website for instant quote.</p>
+                    <a href="#footer" class="contact-button">Contact Us</a>
+                </div><br><br>
+                <div class="card">
+                    <br>
+                    <img src="img/qlty.jpg" alt="100% Product Quality">
+                    <h3>100% Product Quality</h3>
+                    <p>We strictly guarantee the quality of purchased products to meet customer needs. <span>Grow your brand</span> in weeks or months with these quality goods.</p>
+                    <a href="#footer" class="contact-button">Contact Us</a>
+                </div><br><br>
+                <div class="card">
+                    <br>
+                    <img src="img/shpng.jpg" alt="Affordable Shipping Prices">
+                    <h3>Affordable Shipping Prices</h3>
+                    <p>A-Z Clothes Sourcing has an <span>EXTENSIVE</span> support in shipping with low prices. We ship your goods <span>fast and safely</span> according to your transportation requirements.</p>
+                    <a href="#footer" class="contact-button">Contact Us</a>
+                </div><br><br>
+            </div>
+        
+    <h1 class="headingPDT">TOP CUSTOM HOODIES</h1>
+<div class="products">
+  {{#each products}}
+    <div>
+      <img src="{{this.image}}" alt="{{this.name}}">
+      <h1>{{this.name}}</h1>
+      <p>Price: ₹{{this.price}}</p> <!-- Added ₹ symbol -->
+      <input type="number" id="quantity-{{this._id}}" value="100" min="100">
+      <button onclick="addToCart('{{this._id}}')">Add to Cart</button>
+    </div>
+  {{/each}}
+</div>
+<script>
+    async function addToCart(productId) {
+        const quantity = document.getElementById(`quantity-${productId}`).value;
+        const response = await fetch('/cart/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ productId, quantity })
+        });
+        const data = await response.json();
+        alert(data.message);
+    }
+</script><br><br>
+
+ <section class="facebook-group">
+                <div class="facebook-content">
+                    <h2>Join Our Facebook Group To Get Daily Hot Selling Clothes Updates</h2>
+                    <p><strong>If you are a dropshipper,</strong> we can build the Shopify , recommend hot-selling clothes, inspect quality, and fulfill your order.</p>
+                    <p>We share viral dropshipping Clothes on our Facebook group daily to help you succeed in 2024 <span>For Free.</span> These clothes are hand-picked and ready for testing on your Shopify store!</p>
+                    <ul>
+                        <li>🚀 Skyrocket your sales by joining our group for daily product updates.</li>
+                        <li>✅ Join Facebook Group: <a href="https://www.facebook.com/groups/leelinesourcing">https://www.facebook.com/groups/leelinesourcing</a></li>
+                        <li>▶▶ Like Our Facebook: <a href="https://www.facebook.com/leelinesourcing">https://www.facebook.com/leelinesourcing</a></li>
+                        <li>▶▶ Talk with our expert on WhatsApp: <a href="https://wa.me/8613986152456">https://wa.me/8613986152456</a></li>
+                    </ul>
+                </div>
+                <div class="facebook-image">
+                    <img src="img/facebook.jpg" alt="Join our Facebook Group">
+                </div>
+            </section><br>
+        <br><br>
+
+             <section id="footer">
+                <footer class="footer" style=" color: white; padding: 30px 20px; font-family: Arial, sans-serif;">
+                    <div class="footer-overlay">
+                        <div class="footer-content" style="text-align: center; margin-bottom: 20px;">
+                            <h2 style="margin-bottom: 20px; font-size: 24px;">Contact us to Start Your Sourcing and Expand Business Now</h2>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; max-width: 1200px; margin: 0 auto;">
+                            <!-- Contact Information -->
+                            <div class="footer-contact" style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+                                <p style="font-weight: bold; margin-bottom: 10px;">Working Hours</p>
+                                <p>Monday to Saturday</p>
+                                <p>9:00 AM – 6:00 PM (Indian Standard Time)</p><br>
+                                <p style="font-weight: bold; margin-top: 15px; margin-bottom: 10px;">Contact</p>
+                                <p>📞 8613986152456</p>
+                                <p>📧 <a href="mailto:azclothessourcing@gmail.com" style="color: #ffffff; text-decoration: none;">azclothessourcing@gmail.com</a></p>
+                                <p>💬 Skype: Abinesh1997</p>
+                                <p><i class="fa-brands fa-whatsapp"></i> WhatsApp: 1234567890</p>
+                            </div>
+                
+                            <!-- Facebook Group -->
+                            <div class="footer-facebook" style="flex: 1; min-width: 250px; margin-bottom: 20px; text-align: center;">
+                                <div style="border: 1px solid #4ba8ff; padding: 20px; display: inline-block; background-color: #ffffff;">
+                                    <img src="img/ficon.png" alt="Facebook Logo" style="width: 30px; margin-bottom: 10px;">
+                                    <p style="font-size: 16px; font-weight: bold; margin: 10px 0;">Join our</p>
+                                    <p style="font-size: 18px; font-weight: bold; margin: 10px 0;">Facebook Group</p>
+                                    <p style="font-size: 14px; font-weight: bold; margin-top: 10px;">A-Z Clothes Sourcing</p>
+                                </div>
+                            </div>
+                
+                            <!-- Links Section -->
+                            <div class="footer-links" style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+                                <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                                    <li><a href="#" style="color: white; text-decoration: none;">Privacy Policy</a></li><br>
+                                    <li><a href="#" style="color: white; text-decoration: none;">Disclaimer</a></li><br>
+                                    <li><a href="#" style="color: white; text-decoration: none;">Contact US</a></li><br>
+                                    <li><a href="#" style="color: white; text-decoration: none;">A-Z Clothes Sourcing Agents</a></li><br>
+                                    <li><a href="#" style="color: white; text-decoration: none;">Dropshipping</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                
+                        <!-- Footer Bottom -->
+                        <div class="footer-bottom" style="text-align: center; margin-top: 20px; font-size: 14px;">
+                            <p>© 2024 All Rights Reserved, A-Z Clothes Sourcing</p>
+                        </div>
+                    </div>
+                </footer>
+                
+            </section>
+
+
+</body>
+</html>

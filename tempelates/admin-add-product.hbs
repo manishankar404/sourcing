@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Add Products</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<header class="header">
+            <div class="container">
+                <!-- Navigation Menu -->
+                <div class="logo" style="display: flex">
+                    <a href="/"><img src="/img/favicon-32x32.png" /></a>
+                    <a class="navlnk1" href="/"> A-Z Clothes Sourcing </a>
+                </div>
+                <!-- Hamburger Icon for Mobile -->
+                <div class="hamburger" id="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <nav>
+                    <div class="nav-item">
+                        <a href="/products" class="navlnk">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Hoodies">Custom Hoodies</a></li>
+                            <li><a href="/Jackets">Custom Jackets</a></li>
+                            <li><a href="/sweater">Custom Sweaters</a></li>
+                            <li><a href="/Polo_Shirts">Custom Polo Shirts</a></li>
+                            <li><a href="/T_shirts">Custom T-shirts</a></li>
+                            <li><a href="/Tank_Tops">Custom Tank Tops</a></li>
+                            <li><a href="/Pants">Custom Pants</a></li>
+                            <li><a href="/Shorts">Custom Shorts</a></li>
+                            <li><a href="/Socks">Custom Socks</a></li>
+                            <li><a href="/Hats">Custom Hats</a></li>
+                            <li><a href="/Scarf">Custom Scarfs</a></li>
+                            <li><a href="/Gloves">Custom Gloves</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/services" class="navlnk">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Dropshipping">Dropshipping</a></li>
+                            <li>
+                                <a href="/Private_Label_Service">Private Label Service</a>
+                            </li>
+                            <li><a href="/Packing">Custom Packing</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/resources" class="navlnk">Resources</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Sourcing_Guide">Sourcing Guide</a></li>
+                            <li><a href="/Shipping">Shipping</a></li>
+                            <li><a href="/Selling">Selling</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/about" class="navlnk">About</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/About_Sourcing">About Sourcing</a></li>
+                            <li><a href="/Pricing">Pricing</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#footer" class="navlnk">Contact</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="/order" class="navlnk start-sourcing-btn">Order Now</a>
+                    </div>
+                    <span></span>
+                </nav>
+                <a class="navlnk" href="/admin/orders">View Orders</a>
+                <a class="navlnk" href="/submissions">View User Submissions</a>
+                <a class="navlnk" href="/admin/add-product">Add Product</a>
+                <a class="btn logout-btn" href="/admin/logout">Logout</a>
+                <!-- Time -->
+                <p id="demo" class="time"></p>
+            </div>
+        </header>
+
+<script>
+    // Function to display the current time
+    function updateTime() {
+        const d = new Date();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit', // Added seconds for a live clock feel
+            hour12: true,
+        };
+        document.getElementById("demo").innerHTML = d.toLocaleTimeString('en-US', options);
+    }
+
+    // Initial call to display time immediately
+    updateTime();
+
+    // Update the time every second
+    setInterval(updateTime, 1000);
+
+    // Toggle the navigation menu on hamburger click
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+
+    hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+    });
+</script>
+<br><br><br><br><br>
+<form id="add-product-form" action="/admin/add-product" method="POST" enctype="multipart/form-data">
+    <h1 class="heroaddproduct">Add Product</h1>
+    <!-- Product Name -->
+    <label for="name">Product Name:</label>
+    <input type="text" name="name" id="name" required><br><br>
+    
+    <!-- Product Price -->
+    <label for="price">Price:</label>
+    <input type="number" name="price" value="100" id="price" required><br><br>
+    
+    <!-- Product Image -->
+    <label for="image">Product Image:</label>
+    <input type="file" name="image" id="image" accept="image/*" required><br><br>
+    
+    <!-- Product Category -->
+    <label for="category">Category:</label>
+    <select name="category" id="category" required>
+        <option value="Gloves">Custom Gloves</option>   
+        <option value="Scarf">Custom Scarfs</option>
+        <option value="Hats">Custom Hats</option>   
+        <option value="Socks">Custom Socks</option>
+        <option value="Shorts">Custom Shorts</option>
+        <option value="Pants">Custom Pants</option>
+        <option value="Tank_Tops">Custom Tank Tops</option>
+        <option value="T_Shirts">Custom T-shirts</option>
+        <option value="Polo_Shirts">Custom Polo Shirts</option>
+        <option value="Sweaters">Custom Sweaters</option>
+        <option value="Jackets">Custom Jackets</option>
+        <option value="Hoodies">Custom Hoodies</option>
+        
+        
+        
+    </select><br><br>
+    
+    <!-- Submit Button -->
+    <button type="submit">Add Product</button>
+</form>
+</body>
+</html>

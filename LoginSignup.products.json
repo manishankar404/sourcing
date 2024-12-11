@@ -1,0 +1,1050 @@
+[{
+  "_id": {
+    "$oid": "674ca0e15cfdb7b506084ac2"
+  },
+  "name": "Acid Wash Pullover Hoodie",
+  "price": 100,
+  "image": "/img/1733075169666.jpeg",
+  "category": "Hoodies",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ca1025cfdb7b506084ac4"
+  },
+  "name": "Lightweight Zip Hoodie",
+  "price": 100,
+  "image": "/img/1733075202435.jpeg",
+  "category": "Hoodies",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ca1225cfdb7b506084ac6"
+  },
+  "name": "Tri-Blend Zip Hoodie",
+  "price": 100,
+  "image": "/img/1733075234248.jpeg",
+  "category": "Hoodies",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ca17b5cfdb7b506084ac8"
+  },
+  "name": "Pullover Hoodie",
+  "price": 100,
+  "image": "/img/1733075323741.jpeg",
+  "category": "Hoodies",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ca19c5cfdb7b506084aca"
+  },
+  "name": "Quarter Zip Hoodie",
+  "price": 100,
+  "image": "/img/1733075356989.jpeg",
+  "category": "Hoodies",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ca1b05cfdb7b506084acc"
+  },
+  "name": "Soft Zip Hoodie",
+  "price": 100,
+  "image": "/img/1733075376794.jpeg",
+  "category": "Hoodies",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ca1c55cfdb7b506084ace"
+  },
+  "name": "Tie-Dye Pullover Hoodie",
+  "price": 100,
+  "image": "/img/1733075397129.jpeg",
+  "category": "Hoodies",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ca1dd5cfdb7b506084ad0"
+  },
+  "name": "Tri-Blend Pullover Hoodie",
+  "price": 100,
+  "image": "/img/1733075421279.jpeg",
+  "category": "Hoodies",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ca1f25cfdb7b506084ad2"
+  },
+  "name": "Performance Fleece Hoodie",
+  "price": 100,
+  "image": "/img/1733075442265.jpeg",
+  "category": "Hoodies",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f22f5fc6e514d4c0de6e8"
+  },
+  "name": "Coaches Jacket",
+  "price": 100,
+  "image": "/img/1733239541639.jpeg",
+  "category": "Jackets",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2343fc6e514d4c0de6eb"
+  },
+  "name": "Fleece Lined Soft Shell Jacket",
+  "price": 100,
+  "image": "/img/1733239619531.jpeg",
+  "category": "Jackets",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2375fc6e514d4c0de6ed"
+  },
+  "name": "Cold Bay Insulated Vest",
+  "price": 100,
+  "image": "/img/1733239669429.jpeg",
+  "category": "Jackets",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f238efc6e514d4c0de6ef"
+  },
+  "name": "Full Zip Jacket",
+  "price": 100,
+  "image": "/img/1733239694202.jpeg",
+  "category": "Jackets",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f23b7fc6e514d4c0de6f1"
+  },
+  "name": "Insulated Jacket",
+  "price": 100,
+  "image": "/img/1733239735612.jpeg",
+  "category": "Jackets",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f23d1fc6e514d4c0de6f3"
+  },
+  "name": "Lightweight Quilted Jacket",
+  "price": 100,
+  "image": "/img/1733239761314.jpeg",
+  "category": "Jackets",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f23e1fc6e514d4c0de6f5"
+  },
+  "name": "Quarter Zip Anorak",
+  "price": 100,
+  "image": "/img/1733239777446.webp",
+  "category": "Jackets",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f23f4fc6e514d4c0de6f7"
+  },
+  "name": "Varsity Jacket",
+  "price": 100,
+  "image": "/img/1733239796015.jpeg",
+  "category": "Jackets",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2405fc6e514d4c0de6f9"
+  },
+  "name": "Quarter Zip Fleece Pullover",
+  "price": 100,
+  "image": "/img/1733239813661.jpeg",
+  "category": "Jackets",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2803fc6e514d4c0de706"
+  },
+  "name": "Aran Sweater",
+  "price": 100,
+  "image": "/img/1733240835439.jpg",
+  "category": "Sweaters",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2825fc6e514d4c0de708"
+  },
+  "name": "Athletic Sweater",
+  "price": 100,
+  "image": "/img/1733240869936.jpg",
+  "category": "Sweaters",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2849fc6e514d4c0de70a"
+  },
+  "name": "Bell Sweater",
+  "price": 100,
+  "image": "/img/1733240905061.jpg",
+  "category": "Sweaters",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f285efc6e514d4c0de70c"
+  },
+  "name": "Cardigans Sweater",
+  "price": 100,
+  "image": "/img/1733240926562.jpg",
+  "category": "Sweaters",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f287dfc6e514d4c0de70e"
+  },
+  "name": "Cables Knit Sweater",
+  "price": 100,
+  "image": "/img/1733240957353.jpg",
+  "category": "Sweaters",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2892fc6e514d4c0de710"
+  },
+  "name": "Chunky Sweater",
+  "price": 100,
+  "image": "/img/1733240978033.jpg",
+  "category": "Sweaters",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f28e9fc6e514d4c0de712"
+  },
+  "name": "Cashmere Sweater",
+  "price": 100,
+  "image": "/img/1733241065313.jpg",
+  "category": "Sweaters",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f28fdfc6e514d4c0de714"
+  },
+  "name": "Crew-neck Sweater",
+  "price": 100,
+  "image": "/img/1733241085673.jpg",
+  "category": "Sweaters",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2914fc6e514d4c0de716"
+  },
+  "name": "Hoodie Sweater",
+  "price": 100,
+  "image": "/img/1733241108385.jpg",
+  "category": "Sweaters",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2aa329aba586e8a3d3cf"
+  },
+  "name": "Cotton Polo",
+  "price": 100,
+  "image": "/img/1733241507442.jpeg",
+  "category": "Polo_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2abd29aba586e8a3d3d1"
+  },
+  "name": "Embroidered Polo",
+  "price": 100,
+  "image": "/img/1733241533727.jpeg",
+  "category": "Polo_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2ad729aba586e8a3d3d3"
+  },
+  "name": "Golf Polo Shirts",
+  "price": 100,
+  "image": "/img/1733241559852.jpeg",
+  "category": "Polo_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2aee29aba586e8a3d3d5"
+  },
+  "name": "Kids Polo Shirts",
+  "price": 100,
+  "image": "/img/1733241582827.jpeg",
+  "category": "Polo_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2b0829aba586e8a3d3d7"
+  },
+  "name": "Long Sleeve Polo",
+  "price": 100,
+  "image": "/img/1733241608853.jpeg",
+  "category": "Polo_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2b2529aba586e8a3d3d9"
+  },
+  "name": "Performance Polo",
+  "price": 100,
+  "image": "/img/1733241637568.jpeg",
+  "category": "Polo_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2b4c29aba586e8a3d3db"
+  },
+  "name": "Pocket Polo",
+  "price": 100,
+  "image": "/img/1733241676583.jpeg",
+  "category": "Polo_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2b6529aba586e8a3d3dd"
+  },
+  "name": "Silk Touch Polo",
+  "price": 100,
+  "image": "/img/1733241701168.jpeg",
+  "category": "Polo_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2b7c29aba586e8a3d3df"
+  },
+  "name": "Printed Polo Shirt",
+  "price": 100,
+  "image": "/img/1733241724408.jpeg",
+  "category": "Polo_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2ced7de0c5cc5de68da4"
+  },
+  "name": "Crew Neck",
+  "price": 100,
+  "image": "/img/1733242093874.jpeg",
+  "category": "T_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2d037de0c5cc5de68da6"
+  },
+  "name": "Tie-Dye T-shirt",
+  "price": 100,
+  "image": "/img/1733242115978.jpeg",
+  "category": "T_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2d1a7de0c5cc5de68da8"
+  },
+  "name": "Tri-Blend V-Neck T-shirt",
+  "price": 100,
+  "image": "/img/1733242138677.jpeg",
+  "category": "T_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2d2f7de0c5cc5de68daa"
+  },
+  "name": "Pocket Tee",
+  "price": 100,
+  "image": "/img/1733242159511.jpeg",
+  "category": "T_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2d427de0c5cc5de68dac"
+  },
+  "name": "Performance Shirt",
+  "price": 100,
+  "image": "/img/1733242178765.jpeg",
+  "category": "T_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2d5e7de0c5cc5de68dae"
+  },
+  "name": "Ringer",
+  "price": 100,
+  "image": "/img/1733242206972.jpeg",
+  "category": "T_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2d767de0c5cc5de68db0"
+  },
+  "name": "Henley Shirt",
+  "price": 100,
+  "image": "/img/1733242230388.jpeg",
+  "category": "T_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2d887de0c5cc5de68db2"
+  },
+  "name": "Raglan T-shirt",
+  "price": 100,
+  "image": "/img/1733242248774.jpeg",
+  "category": "T_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2d9f7de0c5cc5de68db4"
+  },
+  "name": "Garment Dyed T-shirt",
+  "price": 100,
+  "image": "/img/1733242271926.jpeg",
+  "category": "T_Shirts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2f3ba27855d4c37f3561"
+  },
+  "name": "Cotton Tank",
+  "price": 100,
+  "image": "/img/1733242683601.jpeg",
+  "category": "Tank_Tops",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2f56a27855d4c37f3563"
+  },
+  "name": "Endeavor Performance Tank",
+  "price": 100,
+  "image": "/img/1733242710396.jpeg",
+  "category": "Tank_Tops",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2f70a27855d4c37f3565"
+  },
+  "name": "Joggers",
+  "price": 100,
+  "image": "/img/1733242736759.jpeg",
+  "category": "Tank_Tops",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2f86a27855d4c37f3567"
+  },
+  "name": "Tri-Blend Racerback Tank",
+  "price": 100,
+  "image": "/img/1733242758292.jpeg",
+  "category": "Tank_Tops",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2f9da27855d4c37f3569"
+  },
+  "name": "Tie-Dye Racerback Tank",
+  "price": 100,
+  "image": "/img/1733242781977.jpeg",
+  "category": "Tank_Tops",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2fb0a27855d4c37f356b"
+  },
+  "name": "Sport Performance Tank",
+  "price": 100,
+  "image": "/img/1733242800185.jpeg",
+  "category": "Tank_Tops",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2fc6a27855d4c37f356d"
+  },
+  "name": "Racerback Crop Tank Top",
+  "price": 100,
+  "image": "/img/1733242822665.jpeg",
+  "category": "Tank_Tops",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2fdaa27855d4c37f356f"
+  },
+  "name": "Performance Tank",
+  "price": 100,
+  "image": "/img/1733242842986.jpeg",
+  "category": "Tank_Tops",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f2feda27855d4c37f3571"
+  },
+  "name": "Garment Dyed Tank",
+  "price": 100,
+  "image": "/img/1733242861876.jpeg",
+  "category": "Tank_Tops",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f30eb8213ac88394a7646"
+  },
+  "name": "Utility Pants",
+  "price": 100,
+  "image": "/img/1733243115592.jpeg",
+  "category": "Pants",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f30fd8213ac88394a7648"
+  },
+  "name": "Warm-Up Pant",
+  "price": 100,
+  "image": "/img/1733243133369.jpeg",
+  "category": "Pants",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f31178213ac88394a764a"
+  },
+  "name": "Joggers",
+  "price": 100,
+  "image": "/img/1733243159721.jpeg",
+  "category": "Pants",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f312c8213ac88394a764e"
+  },
+  "name": "Shorts",
+  "price": 100,
+  "image": "/img/1733243180860.jpeg",
+  "category": "Pants",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f31468213ac88394a7650"
+  },
+  "name": "Sweatpants",
+  "price": 100,
+  "image": "/img/1733243206529.jpeg",
+  "category": "Pants",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f31598213ac88394a7652"
+  },
+  "name": "Bib Overalls",
+  "price": 100,
+  "image": "/img/1733243225613.jpeg",
+  "category": "Pants",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f316b8213ac88394a7656"
+  },
+  "name": "Jeans",
+  "price": 100,
+  "image": "/img/1733243243040.jpeg",
+  "category": "Pants",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f317e8213ac88394a7658"
+  },
+  "name": "Cargo Pants",
+  "price": 100,
+  "image": "/img/1733243261998.jpeg",
+  "category": "Pants",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f318e8213ac88394a765a"
+  },
+  "name": "Dress Pants",
+  "price": 100,
+  "image": "/img/1733243278645.jpeg",
+  "category": "Pants",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f35657e92220163f79ffa"
+  },
+  "name": "Cheer Shorts",
+  "price": 100,
+  "image": "/img/1733244261322.jpeg",
+  "category": "Shorts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f35787e92220163f79ffc"
+  },
+  "name": "Fleece Shorts",
+  "price": 100,
+  "image": "/img/1733244280608.jpeg",
+  "category": "Shorts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f35967e92220163f79ffe"
+  },
+  "name": "Mesh Shorts",
+  "price": 100,
+  "image": "/img/1733244310300.jpeg",
+  "category": "Shorts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f35ad7e92220163f7a000"
+  },
+  "name": "Performance Shorts",
+  "price": 100,
+  "image": "/img/1733244333672.jpeg",
+  "category": "Shorts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f35c97e92220163f7a002"
+  },
+  "name": "Pocket Work Shorts",
+  "price": 100,
+  "image": "/img/1733244361061.jpeg",
+  "category": "Shorts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f35dd7e92220163f7a004"
+  },
+  "name": "Sweat Shorts",
+  "price": 100,
+  "image": "/img/1733244381035.jpeg",
+  "category": "Shorts",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f375f0f6d655153104afc"
+  },
+  "name": "Athletic Socks",
+  "price": 100,
+  "image": "/img/1733244766999.webp",
+  "category": "Socks",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f37740f6d655153104afe"
+  },
+  "name": "Crew Socks",
+  "price": 100,
+  "image": "/img/1733244788318.webp",
+  "category": "Socks",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f37840f6d655153104b00"
+  },
+  "name": "Fully Custom Socks",
+  "price": 100,
+  "image": "/img/1733244804763.webp",
+  "category": "Socks",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f37970f6d655153104b02"
+  },
+  "name": "Fuzzy Socks",
+  "price": 100,
+  "image": "/img/1733244823074.webp",
+  "category": "Socks",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f37ad0f6d655153104b04"
+  },
+  "name": "Mid Length Socks",
+  "price": 100,
+  "image": "/img/1733244845993.webp",
+  "category": "Socks",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f37be0f6d655153104b06"
+  },
+  "name": "No Show Socks",
+  "price": 100,
+  "image": "/img/1733244862368.webp",
+  "category": "Socks",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f37d70f6d655153104b08"
+  },
+  "name": "Non-Slip Socks",
+  "price": 100,
+  "image": "/img/1733244887010.webp",
+  "category": "Socks",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f37f10f6d655153104b0a"
+  },
+  "name": "Kids Socks",
+  "price": 100,
+  "image": "/img/1733244913941.webp",
+  "category": "Socks",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f380e0f6d655153104b0c"
+  },
+  "name": "Sports Socks",
+  "price": 100,
+  "image": "/img/1733244942875.webp",
+  "category": "Socks",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f39e4154041506aac2643"
+  },
+  "name": "Baseball Hat",
+  "price": 100,
+  "image": "/img/1733245412540.webp",
+  "category": "Hats",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f39f8154041506aac2645"
+  },
+  "name": "Cotton Hat",
+  "price": 100,
+  "image": "/img/1733245432747.webp",
+  "category": "Hats",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3a0a154041506aac2647"
+  },
+  "name": "Embroidered Hat",
+  "price": 100,
+  "image": "/img/1733245450797.webp",
+  "category": "Hats",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3a1c154041506aac2649"
+  },
+  "name": "Performance Hat",
+  "price": 100,
+  "image": "/img/1733245468648.webp",
+  "category": "Hats",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3a31154041506aac264b"
+  },
+  "name": "Pigment Dyed Hat",
+  "price": 100,
+  "image": "/img/1733245489539.webp",
+  "category": "Hats",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3a43154041506aac264d"
+  },
+  "name": "Tie-Dye Bucket Hat",
+  "price": 100,
+  "image": "/img/1733245507310.webp",
+  "category": "Hats",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3a5e154041506aac2651"
+  },
+  "name": "Work Hat",
+  "price": 100,
+  "image": "/img/1733245534426.webp",
+  "category": "Hats",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3a7c154041506aac2653"
+  },
+  "name": "Trucker Hat",
+  "price": 100,
+  "image": "/img/1733245564896.webp",
+  "category": "Hats",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3aa1154041506aac2655"
+  },
+  "name": "Visors",
+  "price": 100,
+  "image": "/img/1733245601211.webp",
+  "category": "Hats",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3bd5bfbd8b3cb7878be7"
+  },
+  "name": "Bandana",
+  "price": 100,
+  "image": "/img/1733245909417.jpeg",
+  "category": "Scarf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3bedbfbd8b3cb7878be9"
+  },
+  "name": "Cotton Scarf",
+  "price": 100,
+  "image": "/img/1733245933288.jpg",
+  "category": "Scarf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3c08bfbd8b3cb7878beb"
+  },
+  "name": "Faux Silk Scarf",
+  "price": 100,
+  "image": "/img/1733245960898.jpeg",
+  "category": "Scarf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3c21bfbd8b3cb7878bed"
+  },
+  "name": "Fleece Scarf",
+  "price": 100,
+  "image": "/img/1733245985462.jpeg",
+  "category": "Scarf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3c3bbfbd8b3cb7878bef"
+  },
+  "name": "Lightweight Scarf",
+  "price": 100,
+  "image": "/img/1733246011453.jpeg",
+  "category": "Scarf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3c5abfbd8b3cb7878bf1"
+  },
+  "name": "Real Silk Scarf",
+  "price": 100,
+  "image": "/img/1733246042479.jpeg",
+  "category": "Scarf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3c75bfbd8b3cb7878bf3"
+  },
+  "name": "Silk Hair Scarf",
+  "price": 100,
+  "image": "/img/1733246069430.jpg",
+  "category": "Scarf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3c92bfbd8b3cb7878bf5"
+  },
+  "name": "Square Scarf",
+  "price": 100,
+  "image": "/img/1733246098361.jpeg",
+  "category": "Scarf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3cc819161f6ce0f51bc2"
+  },
+  "name": "Wide Blanket Scarf",
+  "price": 100,
+  "image": "/img/1733246152461.jpeg",
+  "category": "Scarf",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3f6048206fb22ab05306"
+  },
+  "name": "Fingerless Knit Work Gloves",
+  "price": 100,
+  "image": "/img/1733246816509.webp",
+  "category": "Gloves",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3f7348206fb22ab05308"
+  },
+  "name": "Fleece Touchscreen Gloves",
+  "price": 100,
+  "image": "/img/1733246835911.webp",
+  "category": "Gloves",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3f8f48206fb22ab0530a"
+  },
+  "name": "Heathered Knit Gloves",
+  "price": 100,
+  "image": "/img/1733246863585.webp",
+  "category": "Gloves",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3fbd48206fb22ab0530c"
+  },
+  "name": "Imprinted Ragg Wool Gloves",
+  "price": 100,
+  "image": "/img/1733246909578.webp",
+  "category": "Gloves",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3fd148206fb22ab0530e"
+  },
+  "name": "Leather Gloves",
+  "price": 100,
+  "image": "/img/1733246929664.webp",
+  "category": "Gloves",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f3ff448206fb22ab05310"
+  },
+  "name": "Lined Dress Gloves",
+  "price": 100,
+  "image": "/img/1733246964337.webp",
+  "category": "Gloves",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f400a48206fb22ab05312"
+  },
+  "name": "TechSmart Gloves",
+  "price": 100,
+  "image": "/img/1733246986094.webp",
+  "category": "Gloves",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f403b48206fb22ab05314"
+  },
+  "name": "Waterproof Winter Lined Suede Cowhide Gloves",
+  "price": 100,
+  "image": "/img/1733247035368.webp",
+  "category": "Gloves",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674f406748206fb22ab05316"
+  },
+  "name": "Winter Lined Fleece Gloves",
+  "price": 100,
+  "image": "/img/1733247079053.webp",
+  "category": "Gloves",
+  "__v": 0
+}]
